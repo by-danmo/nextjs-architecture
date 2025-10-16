@@ -120,25 +120,25 @@ Ce projet est un modèle Next.js **modulaire, évolutif et prêt pour la product
 
 1. **Cloner le Dépôt** :
 
-    ```bash
-    git clone <repository-url>
-    cd nextjs-architecture-blank
-    pnpm install
-    ```
+   ```bash
+   git clone <repository-url>
+   cd nextjs-architecture-blank
+   pnpm install
+   ```
 
 2. **Lancer le Serveur de Développement** :
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   pnpm dev
+   ```
 
 3. **Vérifications de Qualité du Code** :
-    - Les hooks pre-commit lancent ESLint et Prettier.
-    - Utilisez `pnpm lint` pour lancer manuellement le lint.
+   - Les hooks pre-commit lancent ESLint et Prettier.
+   - Utilisez `pnpm lint` pour lancer manuellement le lint.
 
 4. **Tests** :
-    - Lancer les tests unitaires : `pnpm test`
-    - Lancer les tests end-to-end : `pnpm e2e`
+   - Lancer les tests unitaires : `pnpm test`
+   - Lancer les tests end-to-end : `pnpm e2e`
 
 ---
 
@@ -202,7 +202,7 @@ Les variables d'environnement jouent un rôle crucial dans la configuration du p
 
 ```javascript
 // Config File : src/config/env.js
-import { $env } from '@/config';
+import { $env } from "@/config";
 
 export const API_URL = $env.server.API_URL; // Accès typé à la variable d'environnement
 ```
@@ -222,23 +222,23 @@ Cette approche assure une configuration robuste, sécurisée et facile à mainte
 - **Thèmes Dynamiques** : Gérés via `colors.ts` et Zustand.
 
 1. **`colors.ts`** :
-    - Définit l'objet `ThemeColor`, qui contient plusieurs thèmes (par exemple, `main-theme`, `blue-theme`).
-    - Chaque thème inclut un `ColorScheme` avec des nuances prédéfinies (`50`, `100`, ..., `900`) pour les couleurs `primary`, `secondary` et `accent`.
-    - Exporte `colorsConfigFn` pour générer des variables compatibles avec TailwindCSS pour un thème dynamique.
+   - Définit l'objet `ThemeColor`, qui contient plusieurs thèmes (par exemple, `main-theme`, `blue-theme`).
+   - Chaque thème inclut un `ColorScheme` avec des nuances prédéfinies (`50`, `100`, ..., `900`) pour les couleurs `primary`, `secondary` et `accent`.
+   - Exporte `colorsConfigFn` pour générer des variables compatibles avec TailwindCSS pour un thème dynamique.
 
 2. **`setThemeColor.ts`** :
-    - Applique dynamiquement les couleurs du thème sélectionné aux variables CSS en utilisant `document.documentElement.style.setProperty`.
-    - Parcourt les entrées `ColorShade` du thème sélectionné et met à jour les variables `--<color>-<shade>`.
+   - Applique dynamiquement les couleurs du thème sélectionné aux variables CSS en utilisant `document.documentElement.style.setProperty`.
+   - Parcourt les entrées `ColorShade` du thème sélectionné et met à jour les variables `--<color>-<shade>`.
 
 3. **Intégration avec TailwindCSS** :
-    - Le fichier `tailwind.config.ts` utilise `colorsConfigFn` pour mapper les couleurs du thème aux classes TailwindCSS.
-    - Exemple : `bg-primary-500` est mappé à `var(--primary-500)`.
+   - Le fichier `tailwind.config.ts` utilise `colorsConfigFn` pour mapper les couleurs du thème aux classes TailwindCSS.
+   - Exemple : `bg-primary-500` est mappé à `var(--primary-500)`.
 
 4. **Changement de Thème** :
-    - Le composant `ThemeProvider` dans `themecolors.provider.tsx` :
-        - Récupère le thème actuel depuis le store Zustand `useUIStore`.
-        - Applique les couleurs du thème en utilisant `setThemeColor`.
-        - Assure que la page est visible uniquement après l'application du thème pour éviter un flash de contenu non stylé (TODO: cette partie devra être optimisé).
+   - Le composant `ThemeProvider` dans `themecolors.provider.tsx` :
+     - Récupère le thème actuel depuis le store Zustand `useUIStore`.
+     - Applique les couleurs du thème en utilisant `setThemeColor`.
+     - Assure que la page est visible uniquement après l'application du thème pour éviter un flash de contenu non stylé (TODO: cette partie devra être optimisé).
 
 ### Comment Ajouter un Nouveau Thème
 
@@ -299,14 +299,14 @@ Cette approche assure une configuration robuste, sécurisée et facile à mainte
     - Évitez de les imbriquer dans chaque module.
     - Exemple :
     ```tsx
-    import { ThemeProvider } from '@/shared/providers/themecolors.provider';
-    import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-    import type { PropsWithChildren } from 'react';
-    import { buildProvidersTree } from '../shared/utils/build-providers-tree';
+    import { ThemeProvider } from "@/shared/providers/themecolors.provider";
+    import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+    import type { PropsWithChildren } from "react";
+    import { buildProvidersTree } from "../shared/utils/build-providers-tree";
     const queryClient = new QueryClient();
     const ProviderTree = buildProvidersTree([
-        [QueryClientProvider, { client: queryClient }],
-        [ThemeProvider, {}]
+      [QueryClientProvider, { client: queryClient }],
+      [ThemeProvider, {}],
     ]);
     ```
 5.  **Utilisation de Storybook** :
@@ -324,11 +324,11 @@ pnpx storybook init
 Après cette commande, Storybook génère un dossier ".storybook" dans lequel il y a deux fichiers :
 
 - **main.ts** qui contient les fichiers de configuration de Storybook.
-    - stories : définit les configurations pour les points de terminaison qui devront être pris en compte par Storybook.
-    - addons : la liste des addons :
-        - @chromatic : pour les tests de régression visuelle.
-        - themes : pour supporter les différents changements de thème.
-        - a11y : pour les tests d'accessibilité.
+  - stories : définit les configurations pour les points de terminaison qui devront être pris en compte par Storybook.
+  - addons : la liste des addons :
+    - @chromatic : pour les tests de régression visuelle.
+    - themes : pour supporter les différents changements de thème.
+    - a11y : pour les tests d'accessibilité.
 - **preview.ts** : contient tous les paramètres permettant de modifier l'interface de Storybook comme la police, la couleur, etc.
 
 ## 2. Lancer Storybook
@@ -353,15 +353,15 @@ Exemple : Pour un composant Button, créer le fichier `button.stories.tsx`.
 ### 3.2. Importer les types (Meta et StoryObj) ainsi que le composant de la story
 
 ```tsx
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 ```
 
 ### 3.3. Créer l'objet meta qui permet de décrire notre story : nom de la story, le composant utilisé, etc.
 
 ```tsx
 const meta = {
-    title: 'Button',
-    component: Button
+  title: "Button",
+  component: Button,
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -383,14 +383,14 @@ Ce format, beaucoup plus présent dans la version 8, permet de définir des prop
 
 ```tsx
 export const Secondary: Story = {
-    args: {
-        children: 'Secondary'
-    }
+  args: {
+    children: "Secondary",
+  },
 };
 
 // Alternative
 export const Secondary: Story = {
-    render: () => <Button>Secondary</Button>
+  render: () => <Button>Secondary</Button>,
 };
 ```
 
@@ -400,11 +400,11 @@ Souvent, on voudrait que nos stories aient les mêmes props par défaut. Dans ce
 
 ```tsx
 const meta = {
-    title: 'Button',
-    component: Button,
-    args: {
-        children: 'Button'
-    }
+  title: "Button",
+  component: Button,
+  args: {
+    children: "Button",
+  },
 } satisfies Meta;
 ```
 
@@ -412,16 +412,16 @@ const meta = {
 
 ```tsx
 export const Primary: Story = {
-    args: {
-        variant: 'primary'
-    }
+  args: {
+    variant: "primary",
+  },
 };
 
 export const Secondary: Story = {
-    args: {
-        children: 'Secondary',
-        variant: 'secondary'
-    }
+  args: {
+    children: "Secondary",
+    variant: "secondary",
+  },
 };
 ```
 

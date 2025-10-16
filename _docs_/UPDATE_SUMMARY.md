@@ -72,9 +72,9 @@ Mise à jour complète de la documentation du projet suite à un scan approfondi
 - Structure des dossiers avec descriptions
 - Scripts disponibles
 - **Roadmap** pour versions futures:
-    - Version 1.1.0 (Q4 2025) - Auth complète
-    - Version 1.2.0 (Q1 2026) - i18n & Performance
-    - Version 2.0.0 (Q2 2026) - Micro-frontends
+  - Version 1.1.0 (Q4 2025) - Auth complète
+  - Version 1.2.0 (Q1 2026) - i18n & Performance
+  - Version 2.0.0 (Q2 2026) - Micro-frontends
 
 **Format:** Suit [Keep a Changelog](https://keepachangelog.com/)
 
@@ -87,43 +87,43 @@ Mise à jour complète de la documentation du projet suite à un scan approfondi
 **Sections ajoutées:**
 
 1. **Objectif et contexte**
-    - Explication du besoin
-    - Comparaison des solutions (better-auth vs next-auth)
-    - Justification de MinimalAuth
+   - Explication du besoin
+   - Comparaison des solutions (better-auth vs next-auth)
+   - Justification de MinimalAuth
 
 2. **Plan d'action détaillé**
-    - Phase 1: Fondations (✅ Complété)
-    - Phase 2: Core Authentication (🚧 En cours - 30%)
-    - Phase 3: Client Integration (📝 À faire)
-    - Phase 4: API Integration (📝 À faire)
-    - Phase 5: UI Components (📝 À faire)
-    - Phase 6: Advanced Features (🔮 Futur)
+   - Phase 1: Fondations (✅ Complété)
+   - Phase 2: Core Authentication (🚧 En cours - 30%)
+   - Phase 3: Client Integration (📝 À faire)
+   - Phase 4: API Integration (📝 À faire)
+   - Phase 5: UI Components (📝 À faire)
+   - Phase 6: Advanced Features (🔮 Futur)
 
 3. **Structure de fichiers cible**
-    - Arbre complet avec statuts
-    - Légende (✅ Complété, 🚧 En cours, 📝 À créer)
+   - Arbre complet avec statuts
+   - Légende (✅ Complété, 🚧 En cours, 📝 À créer)
 
 4. **Workflow de développement**
-    - Process de création de features
-    - Tests à effectuer
-    - Process de merge
+   - Process de création de features
+   - Tests à effectuer
+   - Process de merge
 
 5. **Progression visuelle**
-    - Barre de progression par phase
-    - Pourcentage global: 20%
-    - Checklist détaillée
+   - Barre de progression par phase
+   - Pourcentage global: 20%
+   - Checklist détaillée
 
 6. **Issues et blocages**
-    - Issues actuels avec solutions proposées
-    - Issues résolus
+   - Issues actuels avec solutions proposées
+   - Issues résolus
 
 7. **Notes de développement**
-    - Décisions techniques (tokens, API calls, state)
-    - Bonnes pratiques (Security, DX, Testing)
+   - Décisions techniques (tokens, API calls, state)
+   - Bonnes pratiques (Security, DX, Testing)
 
 8. **Références**
-    - Documentation externe
-    - Sources d'inspiration
+   - Documentation externe
+   - Sources d'inspiration
 
 9. **Checklist avant merge**
 
@@ -256,31 +256,31 @@ pnpm lint
 ### Fichiers Importants Documentés
 
 1. **Configuration**
-    - next.config.ts
-    - tsconfig.json
-    - .eslintrc.json
-    - playwright.config.ts
-    - .storybook/main.ts
+   - next.config.ts
+   - tsconfig.json
+   - .eslintrc.json
+   - playwright.config.ts
+   - .storybook/main.ts
 
 2. **Core Files**
-    - src/app/layout.tsx
-    - src/providers/root.provider.tsx
-    - src/middleware.ts
-    - src/config/env.config.ts
+   - src/app/layout.tsx
+   - src/providers/root.provider.tsx
+   - src/middleware.ts
+   - src/config/env.config.ts
 
 3. **Components**
-    - src/components/ui/\* (Button, Input, Logo, etc.)
-    - src/components/layout/\* (Header, Footer, Container, Flex)
-    - src/components/sections/hero.tsx
-    - src/components/forms/form.tsx
+   - src/components/ui/\* (Button, Input, Logo, etc.)
+   - src/components/layout/\* (Header, Footer, Container, Flex)
+   - src/components/sections/hero.tsx
+   - src/components/forms/form.tsx
 
 4. **Features**
-    - src/features/auth/\* (système d'auth en cours)
+   - src/features/auth/\* (système d'auth en cours)
 
 5. **Lib**
-    - src/lib/api/client.ts
-    - src/lib/react-query/react-query.ts
-    - src/lib/utils/\* (helpers)
+   - src/lib/api/client.ts
+   - src/lib/react-query/react-query.ts
+   - src/lib/utils/\* (helpers)
 
 ---
 
@@ -308,10 +308,10 @@ pnpm lint
 2. ✅ CHANGELOG.md - Complété
 3. ✅ improvement-workflow(#9).md - Complété
 4. 📝 Créer des guides spécifiques:
-    - Guide de contribution
-    - Guide de déploiement
-    - Guide des tests
-    - Guide Storybook
+   - Guide de contribution
+   - Guide de déploiement
+   - Guide des tests
+   - Guide Storybook
 
 ### Développement
 

@@ -12,10 +12,10 @@
 - **From:** 8.6.12
 - **To:** 9.1.1
 - **New Addons:**
-    - `@storybook/addon-a11y` - Accessibility testing
-    - `@storybook/addon-vitest` - Unit testing integration
-    - `@storybook/addon-styling-webpack` - Styling support
-    - `@storybook/addon-docs` - Enhanced documentation
+  - `@storybook/addon-a11y` - Accessibility testing
+  - `@storybook/addon-vitest` - Unit testing integration
+  - `@storybook/addon-styling-webpack` - Styling support
+  - `@storybook/addon-docs` - Enhanced documentation
 
 ### 2. Git Hooks Simplification
 
@@ -28,26 +28,26 @@
 
 - **File:** `.lintstagedrc.json`
 - **New Configuration:**
-    ```json
-    {
-        "{src,e2e,.storybook}/**/*.(ts|tsx|js)": [
-            "eslint --fix",
-            "npx prettier . --write"
-        ]
-    }
-    ```
+  ```json
+  {
+    "{src,e2e,.storybook}/**/*.(ts|tsx|js)": [
+      "eslint --fix",
+      "npx prettier . --write"
+    ]
+  }
+  ```
 - **Changes:**
-    - Now includes `.storybook/` directory
-    - Runs both ESLint and Prettier
-    - Targets TypeScript and JavaScript files
-    - Executes only when `pnpm commit` is run (not automatically)
+  - Now includes `.storybook/` directory
+  - Runs both ESLint and Prettier
+  - Targets TypeScript and JavaScript files
+  - Executes only when `pnpm commit` is run (not automatically)
 
 ### 4. Package.json Updates
 
 - **Commit Script:** Now runs `pnpm lint-staged` before Commitizen
-    ```json
-    "commit": "pnpm lint-staged && git add -A && cz"
-    ```
+  ```json
+  "commit": "pnpm lint-staged && git add -A && cz"
+  ```
 
 ---
 
@@ -60,8 +60,8 @@
 1. **Line ~53:** Updated Storybook version reference from 8 to 9
 2. **Line ~142:** Updated Storybook version in Testing table to 9.1.1
 3. **Line ~127-134:** Updated Development Tools table:
-    - Changed Husky description to "Git hooks (commit-msg)"
-    - Added Lint-staged entry: "15.2.10 | Linting pré-commit via pnpm commit"
+   - Changed Husky description to "Git hooks (commit-msg)"
+   - Added Lint-staged entry: "15.2.10 | Linting pré-commit via pnpm commit"
 4. **Section "Commits":** Added note about pre-commit removal and new workflow
 5. **Section "Storybook":** Updated configuration to show 9.1.1 addons
 6. **New Section "Lint-Staged Configuration":** Detailed configuration documentation
@@ -78,13 +78,13 @@
 #### Changes Made:
 
 1. **Lines ~95-97:** Updated git hooks section:
-    - Added lint-staged 15.2.10 details
-    - Added configuration pattern
-    - Noted pre-commit hook removal
+   - Added lint-staged 15.2.10 details
+   - Added configuration pattern
+   - Noted pre-commit hook removal
 2. **Lines ~106-114:** Updated Storybook section:
-    - Version changed to 9.1.1
-    - Added new addons (A11y, Vitest, Styling Webpack)
-    - Removed "experimental" addon reference
+   - Version changed to 9.1.1
+   - Added new addons (A11y, Vitest, Styling Webpack)
+   - Removed "experimental" addon reference
 
 #### Key Updates:
 
@@ -119,9 +119,9 @@
 
 1. Make changes
 2. Run: `pnpm commit`
-    - Runs lint-staged (ESLint + Prettier)
-    - Stages all changes: `git add -A`
-    - Launches Commitizen interactive prompt
+   - Runs lint-staged (ESLint + Prettier)
+   - Stages all changes: `git add -A`
+   - Launches Commitizen interactive prompt
 3. Commit with proper message
 4. **Commit-msg hook validates** message format
 
@@ -157,34 +157,34 @@ To verify these changes are properly reflected:
 
 1. Check Storybook version:
 
-    ```bash
-    pnpm list @storybook/nextjs
-    # Should show 9.1.1
-    ```
+   ```bash
+   pnpm list @storybook/nextjs
+   # Should show 9.1.1
+   ```
 
 2. Check git hooks:
 
-    ```bash
-    ls -la .husky/
-    # Should only show: commit-msg, not pre-commit
-    ```
+   ```bash
+   ls -la .husky/
+   # Should only show: commit-msg, not pre-commit
+   ```
 
 3. Test commit workflow:
 
-    ```bash
-    # Make a small change
-    echo "# test" >> test.md
+   ```bash
+   # Make a small change
+   echo "# test" >> test.md
 
-    # Run commit command
-    pnpm commit
-    # Should run lint-staged, then Commitizen
-    ```
+   # Run commit command
+   pnpm commit
+   # Should run lint-staged, then Commitizen
+   ```
 
 4. Verify lint-staged config:
-    ```bash
-    cat .lintstagedrc.json
-    # Should show new pattern with src, e2e, .storybook
-    ```
+   ```bash
+   cat .lintstagedrc.json
+   # Should show new pattern with src, e2e, .storybook
+   ```
 
 ---
 

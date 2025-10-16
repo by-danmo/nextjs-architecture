@@ -32,28 +32,28 @@ Ce projet est un **template Next.js 15** professionnel, modulaire et prêt pour 
 
 ### 🎯 Objectifs
 
--   🚀 **Démarrage Rapide**: Configuration minimale, commencez à coder immédiatement
--   🏗️ **Architecture Scalable**: Structure modulaire qui supporte la croissance
--   🎨 **UI/UX Moderne**: Composants réutilisables avec Tailwind CSS et animations
--   🔒 **Authentification Flexible**: Système d'auth personnalisable sans dépendance lourde
--   ✅ **Qualité de Code**: Outils intégrés (ESLint, Prettier, Husky, TypeScript)
--   📚 **Documentation**: Documentation complète et exemples pratiques
--   🧪 **Tests**: Configuration Playwright pour tests E2E
+- 🚀 **Démarrage Rapide**: Configuration minimale, commencez à coder immédiatement
+- 🏗️ **Architecture Scalable**: Structure modulaire qui supporte la croissance
+- 🎨 **UI/UX Moderne**: Composants réutilisables avec Tailwind CSS et animations
+- 🔒 **Authentification Flexible**: Système d'auth personnalisable sans dépendance lourde
+- ✅ **Qualité de Code**: Outils intégrés (ESLint, Prettier, Husky, TypeScript)
+- 📚 **Documentation**: Documentation complète et exemples pratiques
+- 🧪 **Tests**: Configuration Playwright pour tests E2E
 
 ### 🌟 Caractéristiques Principales
 
--   ✨ Next.js 15.5.5 avec App Router
--   🎭 React 19 avec Server Components
--   💨 TailwindCSS 4 pour le styling
--   🎯 TypeScript strict pour la sécurité des types
--   🔄 Tanstack Query (React Query) pour le data fetching
--   🐻 Zustand pour la gestion d'état globale
--   🎬 Framer Motion pour les animations
--   📝 React Hook Form + Zod pour les formulaires
--   🎨 Storybook 9 pour la documentation des composants
--   🧪 Playwright pour les tests E2E
--   🪝 Husky + Commitlint pour les git hooks
--   📦 PNPM comme gestionnaire de paquets
+- ✨ Next.js 15.5.5 avec App Router
+- 🎭 React 19 avec Server Components
+- 💨 TailwindCSS 4 pour le styling
+- 🎯 TypeScript strict pour la sécurité des types
+- 🔄 Tanstack Query (React Query) pour le data fetching
+- 🐻 Zustand pour la gestion d'état globale
+- 🎬 Framer Motion pour les animations
+- 📝 React Hook Form + Zod pour les formulaires
+- 🎨 Storybook 9 pour la documentation des composants
+- 🧪 Playwright pour les tests E2E
+- 🪝 Husky + Commitlint pour les git hooks
+- 📦 PNPM comme gestionnaire de paquets
 
 ---
 
@@ -62,29 +62,26 @@ Ce projet est un **template Next.js 15** professionnel, modulaire et prêt pour 
 ### Principes Fondamentaux
 
 1. **Modularité**
-
-    - Fonctionnalités isolées dans des features autonomes
-    - Composants réutilisables et découplés
-    - Architecture par couches bien définie
+   - Fonctionnalités isolées dans des features autonomes
+   - Composants réutilisables et découplés
+   - Architecture par couches bien définie
 
 2. **Scalabilité**
-
-    - Structure qui supporte la croissance sans refactoring majeur
-    - Patterns établis pour ajouter de nouvelles fonctionnalités
-    - Performance optimisée (SSR, CSR, Static Generation)
+   - Structure qui supporte la croissance sans refactoring majeur
+   - Patterns établis pour ajouter de nouvelles fonctionnalités
+   - Performance optimisée (SSR, CSR, Static Generation)
 
 3. **Expérience Développeur (DX)**
-
-    - Configuration TypeScript stricte
-    - Auto-completion et IntelliSense optimisés
-    - Hot reload rapide avec Turbopack
-    - Outils de qualité de code automatisés
+   - Configuration TypeScript stricte
+   - Auto-completion et IntelliSense optimisés
+   - Hot reload rapide avec Turbopack
+   - Outils de qualité de code automatisés
 
 4. **Maintenabilité**
-    - Code auto-documenté avec types TypeScript
-    - Structure de fichiers cohérente et prévisible
-    - Conventions de nommage claires
-    - Tests et Storybook intégrés
+   - Code auto-documenté avec types TypeScript
+   - Structure de fichiers cohérente et prévisible
+   - Conventions de nommage claires
+   - Tests et Storybook intégrés
 
 ---
 
@@ -245,9 +242,9 @@ Le projet suit une architecture en couches claire :
 
 ### Prérequis
 
--   Node.js 20.x ou supérieur
--   PNPM 8.x ou supérieur (recommandé)
--   Git
+- Node.js 20.x ou supérieur
+- PNPM 8.x ou supérieur (recommandé)
+- Git
 
 ### Installation
 
@@ -296,27 +293,27 @@ Le projet utilise Zod pour valider les variables d'environnement au démarrage. 
 Configuration dans `src/config/env.config.ts` :
 
 ```typescript
-import chalk from 'chalk';
-import * as z from 'zod';
+import chalk from "chalk";
+import * as z from "zod";
 
 export const $env = {
-    server: {
-        NODE_ENV: process.env.NODE_ENV,
-        SESSION_SECRET: process.env.SESSION_SECRET
-    },
-    client: {
-        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL
-    }
+  server: {
+    NODE_ENV: process.env.NODE_ENV,
+    SESSION_SECRET: process.env.SESSION_SECRET,
+  },
+  client: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+  },
 };
 
 const EnvSchema = z.object({
-    server: z.object({
-        NODE_ENV: z.enum(['development', 'test', 'production']),
-        SESSION_SECRET: z.string().min(32)
-    }),
-    client: z.object({
-        NEXT_PUBLIC_API_URL: z.string().url()
-    })
+  server: z.object({
+    NODE_ENV: z.enum(["development", "test", "production"]),
+    SESSION_SECRET: z.string().min(32),
+  }),
+  client: z.object({
+    NEXT_PUBLIC_API_URL: z.string().url(),
+  }),
 });
 ```
 
@@ -363,16 +360,16 @@ pnpm commit
 
 **Types de commits disponibles:**
 
--   `feat`: Nouvelle fonctionnalité
--   `fix`: Correction de bug
--   `docs`: Documentation
--   `style`: Formatage (pas de changement de code)
--   `refactor`: Refactoring sans changement de fonctionnalité
--   `perf`: Amélioration de performance
--   `test`: Ajout/modification de tests
--   `build`: Build system ou dépendances
--   `ci`: Configuration CI/CD
--   `chore`: Tâches diverses
+- `feat`: Nouvelle fonctionnalité
+- `fix`: Correction de bug
+- `docs`: Documentation
+- `style`: Formatage (pas de changement de code)
+- `refactor`: Refactoring sans changement de fonctionnalité
+- `perf`: Amélioration de performance
+- `test`: Ajout/modification de tests
+- `build`: Build system ou dépendances
+- `ci`: Configuration CI/CD
+- `chore`: Tâches diverses
 
 ### Tests
 
@@ -412,33 +409,31 @@ Composants de base réutilisables, indivisibles.
 
 **Exemples:**
 
--   `Button` - Bouton avec variants
--   `Input` - Champ de saisie
--   `Logo` - Logo du site
--   `Spinner` - Icône de chargement
+- `Button` - Bouton avec variants
+- `Input` - Champ de saisie
+- `Logo` - Logo du site
+- `Spinner` - Icône de chargement
 
 ```tsx
 // src/components/ui/button.tsx
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from "class-variance-authority";
 
 export const buttonVariants = cva(
-    'inline-flex items-center justify-center cursor-pointer w-full font-medium transition-colors',
-    {
-        variants: {
-            variant: {
-                default:
-                    'bg-primary text-primary-foreground hover:bg-primary/90',
-                destructive:
-                    'bg-destructive text-white hover:bg-destructive/90',
-                outline: 'border border-black bg-transparent hover:bg-muted/50'
-            },
-            size: {
-                default: 'px-[4rem] py-[1.9rem]',
-                sm: 'h-9 rounded-md px-3',
-                lg: 'h-11 rounded-md px-8'
-            }
-        }
-    }
+  "inline-flex items-center justify-center cursor-pointer w-full font-medium transition-colors",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive: "bg-destructive text-white hover:bg-destructive/90",
+        outline: "border border-black bg-transparent hover:bg-muted/50",
+      },
+      size: {
+        default: "px-[4rem] py-[1.9rem]",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+      },
+    },
+  },
 );
 ```
 
@@ -448,10 +443,10 @@ Combinaisons d'atomes formant des composants fonctionnels.
 
 **Exemples:**
 
--   `Callout` - Message informatif avec icône
--   `InputError` - Input avec affichage d'erreur
--   `LoadingState` - État de chargement
--   `EmptyState` - État vide
+- `Callout` - Message informatif avec icône
+- `InputError` - Input avec affichage d'erreur
+- `LoadingState` - État de chargement
+- `EmptyState` - État vide
 
 #### 3. Organisms (Organismes) - `src/components/layout/`, `src/components/sections/`
 
@@ -459,10 +454,10 @@ Sections complexes composées de plusieurs molécules.
 
 **Exemples:**
 
--   `Header` - En-tête avec navigation
--   `Footer` - Pied de page
--   `Hero` - Section hero animée
--   `Sidebar` - Barre latérale de navigation
+- `Header` - En-tête avec navigation
+- `Footer` - Pied de page
+- `Hero` - Section hero animée
+- `Sidebar` - Barre latérale de navigation
 
 #### 4. Templates - `src/components/layout/`
 
@@ -470,9 +465,9 @@ Layouts de page réutilisables.
 
 **Exemples:**
 
--   `Container` - Conteneur responsive
--   `Flex` - Layout flexbox configurable
--   `ShouldShow` - Rendu conditionnel
+- `Container` - Conteneur responsive
+- `Flex` - Layout flexbox configurable
+- `ShouldShow` - Rendu conditionnel
 
 #### 5. Pages - `src/app/` et `src/components/pages/`
 
@@ -486,7 +481,7 @@ Composant pour centrer et limiter la largeur du contenu :
 
 ```tsx
 <Container maxWidth="140rem" padding="xl">
-    {children}
+  {children}
 </Container>
 ```
 
@@ -496,14 +491,14 @@ Helper pour créer des layouts flexbox :
 
 ```tsx
 <Flex
-    settings={{
-        align: 'center',
-        justify: 'between',
-        spacing: 'gap-5',
-        isColumn: false
-    }}
+  settings={{
+    align: "center",
+    justify: "between",
+    spacing: "gap-5",
+    isColumn: false,
+  }}
 >
-    {children}
+  {children}
 </Flex>
 ```
 
@@ -513,9 +508,9 @@ Composant pour le rendu conditionnel :
 
 ```tsx
 <ShouldShow
-    when={isLoggedIn}
-    show={<UserProfile />}
-    elseShow={<LoginButton />}
+  when={isLoggedIn}
+  show={<UserProfile />}
+  elseShow={<LoginButton />}
 />
 ```
 
@@ -527,7 +522,7 @@ Le projet utilise Framer Motion pour les animations :
 
 ```tsx
 <MagneticButton strength={1} stiffness={200}>
-    <button>Bouton Magnétique</button>
+  <button>Bouton Magnétique</button>
 </MagneticButton>
 ```
 
@@ -543,10 +538,10 @@ Le projet implémente un système d'authentification personnalisé et flexible, 
 
 Créer une solution d'authentification :
 
--   ✅ Légère et performante
--   ✅ Compatible avec des APIs tierces
--   ✅ Extensible (OAuth, 2FA, refresh tokens)
--   ✅ Type-safe avec TypeScript
+- ✅ Légère et performante
+- ✅ Compatible avec des APIs tierces
+- ✅ Extensible (OAuth, 2FA, refresh tokens)
+- ✅ Type-safe avec TypeScript
 
 ### Structure Actuelle
 
@@ -574,19 +569,19 @@ src/
 
 ```typescript
 // src/app/api/auth/[...authRoute]/route.ts
-import { MinimalAuth } from '@/lib/auth/auth-handler';
+import { MinimalAuth } from "@/lib/auth/auth-handler";
 
 const auth = new MinimalAuth({
-    authEndpoint: '/authentication/sign-in',
-    refreshTokenEndpoint: '/authentication/refresh-token',
-    redirect: {
-        signIn: '/dashboard',
-        signOut: '/login'
-    }
+  authEndpoint: "/authentication/sign-in",
+  refreshTokenEndpoint: "/authentication/refresh-token",
+  redirect: {
+    signIn: "/dashboard",
+    signOut: "/login",
+  },
 });
 
 export async function POST(req: NextRequest, { params }) {
-    return auth.handler(req, { params });
+  return auth.handler(req, { params });
 }
 ```
 
@@ -594,23 +589,23 @@ export async function POST(req: NextRequest, { params }) {
 
 ```typescript
 // src/features/auth/schemas/auth-schemas.ts
-import { z } from 'zod';
+import { z } from "zod";
 
 export const loginSchema = z.object({
-    email: z.string().email('Invalid email address'),
-    password: z.string().min(6, 'Password must be at least 6 characters'),
-    rememberMe: z.boolean().optional().default(false)
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+  rememberMe: z.boolean().optional().default(false),
 });
 
 export const resetPasswordSchema = z
-    .object({
-        password: z.string().min(6),
-        confirmPassword: z.string().min(6)
-    })
-    .refine((data) => data.password === data.confirmPassword, {
-        message: "Passwords don't match",
-        path: ['confirmPassword']
-    });
+  .object({
+    password: z.string().min(6),
+    confirmPassword: z.string().min(6),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match",
+    path: ["confirmPassword"],
+  });
 ```
 
 ### Types d'Authentification
@@ -618,25 +613,25 @@ export const resetPasswordSchema = z
 ```typescript
 // src/types/auth.d.ts
 type User = {
-    sub: string;
-    email: string;
-    role: string;
-    name?: string;
-    avatar?: string;
-    iat: number;
-    exp: number;
+  sub: string;
+  email: string;
+  role: string;
+  name?: string;
+  avatar?: string;
+  iat: number;
+  exp: number;
 };
 
 type TokenPayload = {
-    accessToken: string;
-    refreshToken: string;
+  accessToken: string;
+  refreshToken: string;
 };
 
 type SessionData = {
-    user: User;
-    accessToken: string;
-    refreshToken: string;
-    expiresAt: number;
+  user: User;
+  accessToken: string;
+  refreshToken: string;
+  expiresAt: number;
 };
 ```
 
@@ -644,24 +639,24 @@ type SessionData = {
 
 ```typescript
 // src/middleware.ts
-import { NextRequest, NextResponse } from 'next/server';
-import { APP_ROUTES } from './lib/constants/routes.constants';
+import { NextRequest, NextResponse } from "next/server";
+import { APP_ROUTES } from "./lib/constants/routes.constants";
 
 const protectedRoutes = [APP_ROUTES.dashboard.root];
 
 export async function middleware(request: NextRequest) {
-    const { pathname } = request.nextUrl;
-    const tokenPayload = ''; // TODO: Get from session
+  const { pathname } = request.nextUrl;
+  const tokenPayload = ""; // TODO: Get from session
 
-    const isProtectedRoute = protectedRoutes.some((route) =>
-        pathname.startsWith(route)
-    );
+  const isProtectedRoute = protectedRoutes.some((route) =>
+    pathname.startsWith(route),
+  );
 
-    if (!tokenPayload && isProtectedRoute) {
-        return NextResponse.redirect(new URL(APP_ROUTES.login, request.url));
-    }
+  if (!tokenPayload && isProtectedRoute) {
+    return NextResponse.redirect(new URL(APP_ROUTES.login, request.url));
+  }
 
-    return NextResponse.next();
+  return NextResponse.next();
 }
 ```
 
@@ -669,16 +664,16 @@ export async function middleware(request: NextRequest) {
 
 **Fonctionnalités en cours de développement:**
 
--   [x] Configuration de base MinimalAuth
--   [x] Schémas de validation Zod
--   [x] Route handlers API
--   [ ] Bearer token dans les fetch requests
--   [ ] getSession() côté client
--   [ ] getToken() côté client
--   [ ] Refresh token automatique
--   [ ] OAuth providers (Google, GitHub)
--   [ ] Two-Factor Authentication (2FA)
--   [ ] Session management avec cookies
+- [x] Configuration de base MinimalAuth
+- [x] Schémas de validation Zod
+- [x] Route handlers API
+- [ ] Bearer token dans les fetch requests
+- [ ] getSession() côté client
+- [ ] getToken() côté client
+- [ ] Refresh token automatique
+- [ ] OAuth providers (Google, GitHub)
+- [ ] Two-Factor Authentication (2FA)
+- [ ] Session management avec cookies
 
 ---
 
@@ -698,47 +693,47 @@ Le projet utilise une approche hybride pour la gestion d'état :
 
 ```typescript
 // src/stores/ui.store.ts
-import { create } from 'zustand';
-import { persist, devtools } from 'zustand/middleware';
+import { create } from "zustand";
+import { persist, devtools } from "zustand/middleware";
 
 interface UIState {
-    // Theme
-    theme: Theme;
-    setTheme: (theme: Theme) => void;
+  // Theme
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
 
-    // Sidebar
-    isSidebarCollapsed: boolean;
-    toggleSidebar: () => void;
+  // Sidebar
+  isSidebarCollapsed: boolean;
+  toggleSidebar: () => void;
 
-    // Modals
-    modals: Record<string, boolean>;
-    openModal: (modalId: string) => void;
-    closeModal: (modalId: string) => void;
+  // Modals
+  modals: Record<string, boolean>;
+  openModal: (modalId: string) => void;
+  closeModal: (modalId: string) => void;
 
-    // Notifications
-    notifications: Array<Notification>;
-    addNotification: (notification: Omit<Notification, 'id'>) => void;
+  // Notifications
+  notifications: Array<Notification>;
+  addNotification: (notification: Omit<Notification, "id">) => void;
 }
 
 export const useUIStore = create<UIState>()(
-    devtools(
-        persist(
-            (set) => ({
-                theme: 'main-theme',
-                isSidebarCollapsed: false,
-                modals: {},
-                notifications: []
-                // ... actions
-            }),
-            {
-                name: 'ui-storage',
-                partialize: (state) => ({
-                    theme: state.theme,
-                    isSidebarCollapsed: state.isSidebarCollapsed
-                })
-            }
-        )
-    )
+  devtools(
+    persist(
+      (set) => ({
+        theme: "main-theme",
+        isSidebarCollapsed: false,
+        modals: {},
+        notifications: [],
+        // ... actions
+      }),
+      {
+        name: "ui-storage",
+        partialize: (state) => ({
+          theme: state.theme,
+          isSidebarCollapsed: state.isSidebarCollapsed,
+        }),
+      },
+    ),
+  ),
 );
 ```
 
@@ -748,10 +743,10 @@ export const useUIStore = create<UIState>()(
 // Hooks de sélection pour éviter les re-renders
 export const useTheme = () => useUIStore((state) => state.theme);
 export const useSidebar = () =>
-    useUIStore((state) => ({
-        isCollapsed: state.isSidebarCollapsed,
-        toggle: state.toggleSidebar
-    }));
+  useUIStore((state) => ({
+    isCollapsed: state.isSidebarCollapsed,
+    toggle: state.toggleSidebar,
+  }));
 ```
 
 ### TanStack Query - État Serveur
@@ -759,26 +754,26 @@ export const useSidebar = () =>
 Configuration dans `src/lib/react-query/react-query.ts` :
 
 ```typescript
-import { QueryClient } from '@tanstack/react-query';
+import { QueryClient } from "@tanstack/react-query";
 
 export const queryConfig = {
-    queries: {
-        refetchOnWindowFocus: false,
-        retry: (failureCount, error) => {
-            if (error?.status >= 400 && error?.status < 500) {
-                return false;
-            }
-            return failureCount < 3;
-        },
-        staleTime: 1000 * 60 * 5 // 5 minutes
+  queries: {
+    refetchOnWindowFocus: false,
+    retry: (failureCount, error) => {
+      if (error?.status >= 400 && error?.status < 500) {
+        return false;
+      }
+      return failureCount < 3;
     },
-    mutations: {
-        retry: false
-    }
+    staleTime: 1000 * 60 * 5, // 5 minutes
+  },
+  mutations: {
+    retry: false,
+  },
 };
 
 export const createQueryClient = () => {
-    return new QueryClient({ defaultOptions: queryConfig });
+  return new QueryClient({ defaultOptions: queryConfig });
 };
 ```
 
@@ -786,24 +781,24 @@ export const createQueryClient = () => {
 
 ```typescript
 // src/features/auth/api/example.api.ts
-import { useQuery } from '@tanstack/react-query';
-import { apiClient } from '@/lib/api/client';
+import { useQuery } from "@tanstack/react-query";
+import { apiClient } from "@/lib/api/client";
 
 interface User {
-    id: number;
-    name: string;
-    email: string;
+  id: number;
+  name: string;
+  email: string;
 }
 
 export const getUser = async () => {
-    return await apiClient.get<User>('https://api.example.com/user/1');
+  return await apiClient.get<User>("https://api.example.com/user/1");
 };
 
 export const useGetUser = () =>
-    useQuery<User, Error>({
-        queryKey: ['user'],
-        queryFn: getUser
-    });
+  useQuery<User, Error>({
+    queryKey: ["user"],
+    queryFn: getUser,
+  });
 ```
 
 ### React Context
@@ -860,42 +855,42 @@ Le projet utilise un client API personnalisé basé sur Fetch API :
 ```typescript
 // src/lib/api/client.ts
 class ApiClient {
-    private baseURL: string;
-    private defaultHeaders: Record<string, string>;
+  private baseURL: string;
+  private defaultHeaders: Record<string, string>;
 
-    constructor(baseURL: string) {
-        this.baseURL = baseURL;
-        this.defaultHeaders = {
-            'Content-Type': 'application/json'
-        };
-    }
+  constructor(baseURL: string) {
+    this.baseURL = baseURL;
+    this.defaultHeaders = {
+      "Content-Type": "application/json",
+    };
+  }
 
-    async request<T>(endpoint: string, options: RequestOptions) {
-        const url = this.buildUrl(endpoint, options.params);
-        const headers = await this.getHeaders(options.headers);
+  async request<T>(endpoint: string, options: RequestOptions) {
+    const url = this.buildUrl(endpoint, options.params);
+    const headers = await this.getHeaders(options.headers);
 
-        const response = await fetch(url, {
-            method: options.method || 'GET',
-            headers,
-            body: options.body ? JSON.stringify(options.body) : undefined,
-            cache: options.cache,
-            signal: controller.signal
-        });
+    const response = await fetch(url, {
+      method: options.method || "GET",
+      headers,
+      body: options.body ? JSON.stringify(options.body) : undefined,
+      cache: options.cache,
+      signal: controller.signal,
+    });
 
-        return this.handleResponse<T>(response);
-    }
+    return this.handleResponse<T>(response);
+  }
 
-    async get<T>(endpoint: string, options?) {
-        return this.request<T>(endpoint, { ...options, method: 'GET' });
-    }
+  async get<T>(endpoint: string, options?) {
+    return this.request<T>(endpoint, { ...options, method: "GET" });
+  }
 
-    async post<T>(endpoint: string, body?, options?) {
-        return this.request<T>(endpoint, { ...options, method: 'POST', body });
-    }
+  async post<T>(endpoint: string, body?, options?) {
+    return this.request<T>(endpoint, { ...options, method: "POST", body });
+  }
 }
 
 export const apiClient = new ApiClient(
-    process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api",
 );
 ```
 
@@ -903,10 +898,10 @@ export const apiClient = new ApiClient(
 
 ```typescript
 export type ApiResponse<T = any> = {
-    data?: T;
-    error?: string;
-    success: boolean;
-    message?: string;
+  data?: T;
+  error?: string;
+  success: boolean;
+  message?: string;
 };
 ```
 
@@ -980,9 +975,9 @@ Configuration dans `postcss.config.mjs` :
 
 ```javascript
 const config = {
-    plugins: {
-        '@tailwindcss/postcss': {}
-    }
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
 };
 ```
 
@@ -990,35 +985,37 @@ const config = {
 
 ```css
 /* src/app/globals.css */
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 145, 194, 228;
-    --background-end-rgb: 254, 255, 243;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 145, 194, 228;
+  --background-end-rgb: 254, 255, 243;
 }
 
 @layer base {
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        transition: color, background-color 200ms ease;
-    }
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition:
+      color,
+      background-color 200ms ease;
+  }
 
-    html {
-        font-size: 62.5%; /* 1rem = 10px */
-    }
+  html {
+    font-size: 62.5%; /* 1rem = 10px */
+  }
 
-    body {
-        font-family: 'Urbanist Variable', sans-serif;
-        font-size: 1.6rem;
-    }
+  body {
+    font-family: "Urbanist Variable", sans-serif;
+    font-size: 1.6rem;
+  }
 
-    h1 {
-        @apply text-[4.8rem];
-        font-family: 'DM Serif Display', serif;
-    }
+  h1 {
+    @apply text-[4.8rem];
+    font-family: "DM Serif Display", serif;
+  }
 }
 ```
 
@@ -1026,32 +1023,32 @@ const config = {
 
 ```css
 @layer utilities {
-    .flex-full-center {
-        @apply flex items-center justify-center;
+  .flex-full-center {
+    @apply flex items-center justify-center;
+  }
+
+  .hero-bg {
+    background: linear-gradient(
+      180deg,
+      rgb(var(--background-start-rgb)) 0%,
+      rgb(var(--background-end-rgb)) 100%
+    );
+  }
+
+  .link {
+    @apply relative transition-all w-max hover:font-bold;
+
+    &::after {
+      content: "";
+      @apply absolute -bottom-2 left-0 w-full h-[.22rem] bg-black;
+      transform: scaleX(0);
+      transition: transform 0.3s ease-in-out;
     }
 
-    .hero-bg {
-        background: linear-gradient(
-            180deg,
-            rgb(var(--background-start-rgb)) 0%,
-            rgb(var(--background-end-rgb)) 100%
-        );
+    &:hover::after {
+      transform: scaleX(1);
     }
-
-    .link {
-        @apply relative transition-all w-max hover:font-bold;
-
-        &::after {
-            content: '';
-            @apply absolute -bottom-2 left-0 w-full h-[.22rem] bg-black;
-            transform: scaleX(0);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        &:hover::after {
-            transform: scaleX(1);
-        }
-    }
+  }
 }
 ```
 
@@ -1059,20 +1056,20 @@ const config = {
 
 ```typescript
 // src/app/layout.tsx
-import '@fontsource-variable/urbanist'; // 100-900 weights
-import '@fontsource/dm-serif-display';
-import '@fontsource/dm-serif-text';
+import "@fontsource-variable/urbanist"; // 100-900 weights
+import "@fontsource/dm-serif-display";
+import "@fontsource/dm-serif-text";
 ```
 
 ### Utility Function
 
 ```typescript
 // src/lib/utils/generics.ts
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs));
 }
 ```
 
@@ -1204,22 +1201,22 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 Configuration dans `playwright.config.ts` :
 
 ```typescript
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
-    testDir: './e2e/test',
-    fullyParallel: true,
-    forbidOnly: !!process.env.CI,
-    retries: process.env.CI ? 2 : 0,
-    reporter: 'html',
-    use: {
-        trace: 'on-first-retry'
-    },
-    projects: [
-        { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-        { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-        { name: 'webkit', use: { ...devices['Desktop Safari'] } }
-    ]
+  testDir: "./e2e/test",
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  reporter: "html",
+  use: {
+    trace: "on-first-retry",
+  },
+  projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    { name: "firefox", use: { ...devices["Desktop Firefox"] } },
+    { name: "webkit", use: { ...devices["Desktop Safari"] } },
+  ],
 });
 ```
 
@@ -1227,17 +1224,17 @@ export default defineConfig({
 
 ```typescript
 // e2e/test/example.spec.ts
-import { expect, test } from '@playwright/test';
+import { expect, test } from "@playwright/test";
 
 test("Page d'accueil avec titre correct", async ({ page }) => {
-    await page.goto('http://localhost:3000/');
-    await expect(page).toHaveTitle(/NextJs Template/);
+  await page.goto("http://localhost:3000/");
+  await expect(page).toHaveTitle(/NextJs Template/);
 });
 
-test('Navigation fonctionnelle', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
-    await page.getByRole('link', { name: 'Dashboard' }).click();
-    await expect(page.url()).toContain('/dashboard');
+test("Navigation fonctionnelle", async ({ page }) => {
+  await page.goto("http://localhost:3000/");
+  await page.getByRole("link", { name: "Dashboard" }).click();
+  await expect(page.url()).toContain("/dashboard");
 });
 ```
 
@@ -1324,37 +1321,37 @@ export const Loading: Story = {
 
 1. **Import de Types**
 
-    ```typescript
-    // ✅ Bon
-    import type { User } from './types';
+   ```typescript
+   // ✅ Bon
+   import type { User } from "./types";
 
-    // ❌ Mauvais
-    import { User } from './types';
-    ```
+   // ❌ Mauvais
+   import { User } from "./types";
+   ```
 
 2. **No Any**
 
-    ```typescript
-    // ❌ Éviter
-    function process(data: any) {}
+   ```typescript
+   // ❌ Éviter
+   function process(data: any) {}
 
-    // ✅ Préférer
-    function process<T>(data: T) {}
-    ```
+   // ✅ Préférer
+   function process<T>(data: T) {}
+   ```
 
 3. **Promesses sans await**
-    ```typescript
-    // Si une promesse n'est pas await, utiliser void
-    void fetchData();
-    ```
+   ```typescript
+   // Si une promesse n'est pas await, utiliser void
+   void fetchData();
+   ```
 
 ### Conventions de Nommage
 
--   **Fichiers**: `kebab-case.tsx`, `user-profile.tsx`
--   **Composants**: `PascalCase`, `UserProfile`
--   **Hooks**: `camelCase`, `useUserData`
--   **Constants**: `UPPER_SNAKE_CASE`, `API_URL`
--   **Types**: `PascalCase`, `UserData`
+- **Fichiers**: `kebab-case.tsx`, `user-profile.tsx`
+- **Composants**: `PascalCase`, `UserProfile`
+- **Hooks**: `camelCase`, `useUserData`
+- **Constants**: `UPPER_SNAKE_CASE`, `API_URL`
+- **Types**: `PascalCase`, `UserData`
 
 ### Lint-Staged Configuration
 
@@ -1362,19 +1359,19 @@ Le projet utilise `lint-staged` pour automatiser le linting et le formatage avan
 
 ```json
 {
-    "{src,e2e,.storybook}/**/*.(ts|tsx|js)": [
-        "eslint --fix",
-        "npx prettier . --write"
-    ]
+  "{src,e2e,.storybook}/**/*.(ts|tsx|js)": [
+    "eslint --fix",
+    "npx prettier . --write"
+  ]
 }
 ```
 
 **Fonctionnement:**
 
--   Cible les fichiers dans `src/`, `e2e/`, et `.storybook/`
--   Applique ESLint avec auto-fix
--   Formate avec Prettier
--   S'exécute uniquement via `pnpm commit` (pas de pre-commit hook automatique)
+- Cible les fichiers dans `src/`, `e2e/`, et `.storybook/`
+- Applique ESLint avec auto-fix
+- Formate avec Prettier
+- S'exécute uniquement via `pnpm commit` (pas de pre-commit hook automatique)
 
 ### Structure des Fichiers
 
@@ -1442,8 +1439,8 @@ pnpm build
 ```typescript
 // next.config.ts
 const nextConfig = {
-    reactStrictMode: true,
-    output: 'standalone' // Pour Docker
+  reactStrictMode: true,
+  output: "standalone", // Pour Docker
 };
 ```
 
@@ -1467,9 +1464,9 @@ NODE_ENV="production"
 
 ### Obtenir de l'Aide
 
--   📖 Consulter cette documentation
--   💬 Contacter l'équipe de développement
--   🐛 Créer une issue sur le repository
+- 📖 Consulter cette documentation
+- 💬 Contacter l'équipe de développement
+- 🐛 Créer une issue sur le repository
 
 ### Contribuer
 
