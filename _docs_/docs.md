@@ -1,432 +1,1485 @@
 # Next.js Architecture Blank - Documentation Complète
 
-## Table des Matières
+**Version:** 1.0.0  
+**Dernière mise à jour:** 15 octobre 2025  
+**Next.js Version:** 15.5.5  
+**Branch actuelle:** improvements
+
+## 📚 Table des Matières
 
 1. [Introduction](#introduction)
 2. [Philosophie du Projet](#philosophie-du-projet)
-3. [Structure des Dossiers](#structure-des-dossiers)
-4. [Fonctionnalités Clés](#fonctionnalités-clés)
-5. [Flux de Développement](#flux-de-développement)
+3. [Stack Technologique](#stack-technologique)
+4. [Structure du Projet](#structure-du-projet)
+5. [Installation et Configuration](#installation-et-configuration)
 6. [Scripts et Commandes](#scripts-et-commandes)
-7. [Conventions des commits](#scripts-et-commandes)
-8. [Configuration](#configuration)
-9. [Styles et Thèmes](#styles-et-thèmes)
-10. [API et Gestion d'État](#api-et-gestion-détat)
-11. [Tests](#tests)
-12. [Bonnes Pratiques](#bonnes-pratiques)
-13. [Déploiement](#déploiement)
+7. [Architecture des Composants](#architecture-des-composants)
+8. [Système d'Authentification](#système-dauthentification)
+9. [Gestion d'État](#gestion-détat)
+10. [API et Requêtes HTTP](#api-et-requêtes-http)
+11. [Styles et Thèmes](#styles-et-thèmes)
+12. [Formulaires et Validation](#formulaires-et-validation)
+13. [Tests](#tests)
+14. [Storybook](#storybook)
+15. [Conventions et Bonnes Pratiques](#conventions-et-bonnes-pratiques)
+16. [Déploiement](#déploiement)
 
 ---
 
 ## Introduction
 
-Ce projet est un modèle Next.js modulaire et évolutif conçu pour simplifier le développement et l'intégration. Il intègre des outils modernes et des bonnes pratiques pour garantir la maintenabilité et la performance.
+Ce projet est un **template Next.js 15** professionnel, modulaire et prêt pour la production. Il intègre les meilleures pratiques actuelles du développement web moderne et fournit une base solide pour construire des applications React évolutives.
+
+### 🎯 Objectifs
+
+-   🚀 **Démarrage Rapide**: Configuration minimale, commencez à coder immédiatement
+-   🏗️ **Architecture Scalable**: Structure modulaire qui supporte la croissance
+-   🎨 **UI/UX Moderne**: Composants réutilisables avec Tailwind CSS et animations
+-   🔒 **Authentification Flexible**: Système d'auth personnalisable sans dépendance lourde
+-   ✅ **Qualité de Code**: Outils intégrés (ESLint, Prettier, Husky, TypeScript)
+-   📚 **Documentation**: Documentation complète et exemples pratiques
+-   🧪 **Tests**: Configuration Playwright pour tests E2E
+
+### 🌟 Caractéristiques Principales
+
+-   ✨ Next.js 15.5.5 avec App Router
+-   🎭 React 19 avec Server Components
+-   💨 TailwindCSS 4 pour le styling
+-   🎯 TypeScript strict pour la sécurité des types
+-   🔄 Tanstack Query (React Query) pour le data fetching
+-   🐻 Zustand pour la gestion d'état globale
+-   🎬 Framer Motion pour les animations
+-   📝 React Hook Form + Zod pour les formulaires
+-   🎨 Storybook 9 pour la documentation des composants
+-   🧪 Playwright pour les tests E2E
+-   🪝 Husky + Commitlint pour les git hooks
+-   📦 PNPM comme gestionnaire de paquets
 
 ---
 
 ## Philosophie du Projet
 
--   **Modularité** : Les fonctionnalités sont isolées dans des modules autonomes.
--   **Scalabilité** : L'architecture supporte la croissance sans compromettre la maintenabilité.
--   **Expérience Développeur** : Des outils comme ESLint, Prettier et Husky sont intégrés pour garantir la qualité du code.
--   **Performance** : Optimisé pour le rendu côté serveur (SSR) et côté client (CSR).
+### Principes Fondamentaux
+
+1. **Modularité**
+
+    - Fonctionnalités isolées dans des features autonomes
+    - Composants réutilisables et découplés
+    - Architecture par couches bien définie
+
+2. **Scalabilité**
+
+    - Structure qui supporte la croissance sans refactoring majeur
+    - Patterns établis pour ajouter de nouvelles fonctionnalités
+    - Performance optimisée (SSR, CSR, Static Generation)
+
+3. **Expérience Développeur (DX)**
+
+    - Configuration TypeScript stricte
+    - Auto-completion et IntelliSense optimisés
+    - Hot reload rapide avec Turbopack
+    - Outils de qualité de code automatisés
+
+4. **Maintenabilité**
+    - Code auto-documenté avec types TypeScript
+    - Structure de fichiers cohérente et prévisible
+    - Conventions de nommage claires
+    - Tests et Storybook intégrés
 
 ---
 
-## Structure des Dossiers
+## Stack Technologique
+
+### Core Framework
+
+| Technologie | Version | Utilisation                        |
+| ----------- | ------- | ---------------------------------- |
+| Next.js     | 15.5.5  | Framework React avec SSR/SSG       |
+| React       | 19.2.0  | Library UI avec Server Components  |
+| TypeScript  | 5.5.4   | Langage typé pour JavaScript       |
+| PNPM        | Latest  | Gestionnaire de paquets performant |
+
+### Styling & UI
+
+| Technologie              | Version | Utilisation                             |
+| ------------------------ | ------- | --------------------------------------- |
+| TailwindCSS              | 4.1.14  | Framework CSS utility-first             |
+| Framer Motion            | 12.4.7  | Animations et transitions               |
+| Class Variance Authority | 0.7.0   | Gestion des variants de composants      |
+| Lucide React             | 0.545.0 | Icônes modernes                         |
+| Fontsource               | Latest  | Polices optimisées (Urbanist, DM Serif) |
+
+### Data Management
+
+| Technologie    | Version | Utilisation                          |
+| -------------- | ------- | ------------------------------------ |
+| Tanstack Query | 5.61.4  | Gestion des données serveur et cache |
+| Zustand        | 5.0.3   | État global côté client              |
+| Axios          | 1.7.7   | Client HTTP                          |
+
+### Forms & Validation
+
+| Technologie         | Version | Utilisation             |
+| ------------------- | ------- | ----------------------- |
+| React Hook Form     | 7.53.0  | Gestion des formulaires |
+| Zod                 | 3.23.8  | Validation de schémas   |
+| @hookform/resolvers | 3.9.0   | Intégration RHF + Zod   |
+
+### Development Tools
+
+| Technologie | Version | Utilisation                        |
+| ----------- | ------- | ---------------------------------- |
+| Biome       | 1.9.4   | Linter et formatter rapide         |
+| ESLint      | 8.57.0  | Linter JavaScript/TypeScript       |
+| Prettier    | Latest  | Formatage de code                  |
+| Husky       | 9.1.7   | Git hooks (commit-msg)             |
+| Lint-staged | 15.2.10 | Linting pré-commit via pnpm commit |
+| Commitlint  | 19.4.1  | Validation des commits             |
+| Commitizen  | 4.3.0   | Helper pour commits conventionnels |
+
+### Testing
+
+| Technologie | Version | Utilisation                    |
+| ----------- | ------- | ------------------------------ |
+| Playwright  | 1.48.2  | Tests end-to-end               |
+| Storybook   | 9.1.1   | Documentation et tests visuels |
+
+### Authentication & Security
+
+| Technologie  | Version | Utilisation                          |
+| ------------ | ------- | ------------------------------------ |
+| jsonwebtoken | 9.0.2   | JWT tokens                           |
+| Custom Auth  | -       | MinimalAuth class (en développement) |
+
+---
+
+## Structure du Projet
+
+### Vue d'ensemble
 
 ```
-/nextjs-architecture-blank/
-├── src/
-│   ├── app/                   # App Router Next.js
-│   │   ├── (home)/            # Module page d'accueil
-│   │   ├── dashboard/         # Module tableau de bord
-│   │   ├── layout.tsx         # Layout racine
-│   │   ├── page.tsx           # Page racine
-│   │   └── provider.tsx       # Fournisseurs globaux
-│   │
-│   ├── config/                # Fichiers de configuration
-│   │   ├── env.js             # Validation des variables d'environnement
-│   │   ├── site.config.ts     # Métadonnées du site
-│   │   └── index.ts           # Point d'entrée config
-│   │
-│   ├── shared/                # Ressources partagées
-│   │   ├── components/        # Composants réutilisables
-│   │   │   ├── atoms/         # Éléments UI de base
-│   │   │   ├── molecules/     # Éléments UI composés
-│   │   │   ├── organisms/     # Sections UI complexes
-│   │   │   └── layouts/       # Layouts de page
-│   │   ├── hooks/             # Hooks React personnalisés
-│   │   ├── utils/             # Fonctions utilitaires
-│   │   ├── providers/         # Fournisseurs de contexte
-│   │   └── store/             # Gestion d'état Zustand
-│   │
-│   ├── styles/                # Styles globaux
-│   │   ├── globals.css        # Styles globaux TailwindCSS
-│   │   └── colors.ts          # Définitions des couleurs du thème
-│   │
-│   └── features/              # Modules spécifiques aux fonctionnalités
-│       ├── [feature]/         # Exemple de dossier fonctionnalité
-│       │   ├── api/           # Appels API
-│       │   ├── components/    # Composants spécifiques
-│       │   ├── hooks/         # Hooks spécifiques
-│       │   ├── types/         # Types TypeScript
-│       │   └── utils/         # Utilitaires spécifiques
-│
-├── e2e/                       # Tests end-to-end
-│   └── test/                  # Cas de test Playwright
-│
+nextjs-architecture-blank/
+├── .husky/                    # Git hooks configuration
+├── .storybook/                # Storybook configuration
+├── .vscode/                   # VSCode settings
+├── _docs_/                    # Documentation du projet
+├── e2e/                       # Tests Playwright
+│   └── test/                  # Fichiers de tests E2E
 ├── public/                    # Assets statiques
-├── .husky/                    # Hooks Git
-├── .vscode/                   # Paramètres VSCode
-├── .env                       # Variables d'environnement
-├── package.json               # Métadonnées et scripts du projet
-├── pnpm-lock.yaml             # Fichier de verrouillage des dépendances
-├── tailwind.config.js         # Configuration TailwindCSS
-└── tsconfig.json              # Configuration TypeScript
+│   └── assets/                # Images, fonts, etc.
+└── src/                       # Code source principal
+    ├── app/                   # Next.js App Router
+    │   ├── (dashboard)/       # Route group - Dashboard
+    │   ├── (landing)/         # Route group - Landing page
+    │   │   └── page.tsx       # Page d'accueil
+    │   ├── api/               # API Routes
+    │   │   └── auth/          # Routes d'authentification
+    │   ├── globals.css        # Styles globaux
+    │   ├── layout.tsx         # Layout racine
+    │   ├── middleware.ts      # Middleware Next.js
+    │   └── robots.txt         # Configuration SEO
+    ├── assets/                # Assets internes
+    │   ├── fonts/             # Polices personnalisées
+    │   └── images/            # Images du projet
+    ├── components/            # Composants réutilisables
+    │   ├── feedback/          # États UI (loading, error, empty)
+    │   ├── forms/             # Composants de formulaires
+    │   ├── icons/             # Icônes personnalisées
+    │   ├── layout/            # Composants de mise en page
+    │   ├── pages/             # Page-level components
+    │   ├── sections/          # Sections réutilisables
+    │   └── ui/                # Composants UI de base
+    ├── config/                # Configuration
+    │   ├── env.config.ts      # Variables d'environnement
+    │   ├── site.config.ts     # Configuration du site
+    │   └── index.ts           # Export centralisé
+    ├── context/               # React Contexts
+    │   ├── example.context.tsx
+    │   └── index.ts
+    ├── data/                  # Données statiques et mock
+    │   ├── menu.data.ts       # Données de navigation
+    │   └── mock/              # Données de développement
+    ├── features/              # Features modulaires
+    │   └── auth/              # Feature authentification
+    │       ├── api/           # API calls
+    │       ├── components/    # Composants spécifiques
+    │       ├── schemas/       # Schémas de validation
+    │       ├── stores/        # État local de la feature
+    │       ├── types/         # Types TypeScript
+    │       ├── utils/         # Utilitaires
+    │       └── views/         # Pages/vues
+    ├── hooks/                 # Custom React Hooks
+    │   └── index.ts           # Hooks réutilisables
+    ├── lib/                   # Bibliothèques et utils
+    │   ├── api/               # Client API
+    │   ├── constants/         # Constantes de l'app
+    │   ├── react-query/       # Configuration React Query
+    │   ├── utils/             # Fonctions utilitaires
+    │   └── validations/       # Schémas de validation globaux
+    ├── providers/             # React Providers
+    │   └── root.provider.tsx  # Provider racine
+    ├── stores/                # Zustand stores
+    │   └── ui.store.ts        # Store UI global
+    └── types/                 # Types TypeScript globaux
+        ├── auth.d.ts          # Types d'authentification
+        ├── common.d.ts        # Types communs
+        ├── env.d.ts           # Types d'environnement
+        └── index.ts           # Export des types
 ```
 
+### Organisation par Couches
+
+Le projet suit une architecture en couches claire :
+
+1. **app/** - Couche de routing et pages (Next.js App Router)
+2. **components/** - Composants UI réutilisables (présentation)
+3. **features/** - Modules fonctionnels avec logique métier
+4. **lib/** - Utilitaires, helpers, et configurations
+5. **hooks/** - Logic réutilisable côté client
+6. **stores/** - État global de l'application
+7. **types/** - Définitions de types TypeScript
+
 ---
 
-## Fonctionnalités Clés
+## Installation et Configuration
 
-1. **TypeScript** : Garantit la sécurité des types dans tout le projet.
-2. **TailwindCSS** : Fournit un système de styles utilitaire.
-3. **React Query** : Gère efficacement l'état des API.
-4. **Zustand** : Gestion d'état globale légère.
-5. **Husky et Lint-Staged** : Automatisent les vérifications de qualité du code lors des commits.
-6. **Playwright** : Permet des tests end-to-end robustes.
+### Prérequis
 
----
+-   Node.js 20.x ou supérieur
+-   PNPM 8.x ou supérieur (recommandé)
+-   Git
 
-## Flux de Développement
+### Installation
 
-1. **Cloner le Dépôt** :
+```bash
+# Cloner le repository
+git clone <repository-url>
+cd nextjs-architecture-blank
 
-    ```bash
-    git clone <repository-url>
-    cd nextjs-architecture-blank
-    pnpm install
-    ```
+# Installer les dépendances
+pnpm install
 
-2. **Lancer le Serveur de Développement** :
+# Copier le fichier d'environnement
+cp .env.example .env
 
-    ```bash
-    pnpm dev
-    ```
+# Configurer les variables d'environnement
+# Éditer le fichier .env avec vos valeurs
+```
 
-3. **Vérifications de Qualité du Code** :
+### Variables d'Environnement
 
-    - Les hooks pre-commit lancent ESLint et Prettier.
-    - Utilisez `pnpm lint` pour lancer manuellement le lint.
+Créez un fichier `.env` à la racine du projet :
 
-4. **Tests** :
-    - Lancer les tests unitaires : `pnpm test`
-    - Lancer les tests end-to-end : `pnpm e2e`
+```env
+# API Configuration
+NEXT_PUBLIC_API_URL="https://your-api.com"
+
+# Session Configuration
+SESSION_SECRET="your-super-secret-key-min-32-characters"
+
+# Node Environment
+NODE_ENV="development"
+```
+
+#### Variables Requises
+
+| Variable              | Description                  | Exemple                             |
+| --------------------- | ---------------------------- | ----------------------------------- |
+| `NEXT_PUBLIC_API_URL` | URL de l'API backend         | `https://api.example.com`           |
+| `SESSION_SECRET`      | Secret pour les sessions JWT | String de 32+ caractères            |
+| `NODE_ENV`            | Environnement d'exécution    | `development`, `production`, `test` |
+
+### Validation des Variables
+
+Le projet utilise Zod pour valider les variables d'environnement au démarrage. Si une variable est manquante ou invalide, le serveur ne démarrera pas et affichera une erreur détaillée dans le terminal.
+
+Configuration dans `src/config/env.config.ts` :
+
+```typescript
+import chalk from 'chalk';
+import * as z from 'zod';
+
+export const $env = {
+    server: {
+        NODE_ENV: process.env.NODE_ENV,
+        SESSION_SECRET: process.env.SESSION_SECRET
+    },
+    client: {
+        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL
+    }
+};
+
+const EnvSchema = z.object({
+    server: z.object({
+        NODE_ENV: z.enum(['development', 'test', 'production']),
+        SESSION_SECRET: z.string().min(32)
+    }),
+    client: z.object({
+        NEXT_PUBLIC_API_URL: z.string().url()
+    })
+});
+```
 
 ---
 
 ## Scripts et Commandes
 
--   `pnpm dev` : Démarrer le serveur de développement.
--   `pnpm build` : Construire le projet pour la production.
--   `pnpm start` : Démarrer le serveur de production.
--   `pnpm lint` : Lancer ESLint.
--   `pnpm test` : Lancer les tests unitaires.
--   `pnpm e2e` : Lancer les tests end-to-end.
+### Développement
+
+```bash
+# Démarrer le serveur de développement (avec Turbopack)
+pnpm dev
+# → Ouvre http://localhost:3000
+
+# Build de production
+pnpm build
+
+# Démarrer le serveur de production
+pnpm start
+```
+
+### Qualité de Code
+
+```bash
+# Linter le code
+pnpm lint
+
+# Formater le code avec Prettier
+pnpm format
+```
+
+### Commits
+
+```bash
+# Créer un commit avec Commitizen (recommandé)
+pnpm commit
+# → Cette commande fait automatiquement :
+#    1. Lance lint-staged (ESLint + Prettier sur les fichiers modifiés)
+#    2. Ajoute les fichiers au staging (git add -A)
+#    3. Lance l'assistant interactif Commitizen
+```
+
+**Note:** Le pre-commit hook a été retiré. Le linting est maintenant géré par la commande `pnpm commit` elle-même, donnant plus de contrôle au développeur.
+
+**Types de commits disponibles:**
+
+-   `feat`: Nouvelle fonctionnalité
+-   `fix`: Correction de bug
+-   `docs`: Documentation
+-   `style`: Formatage (pas de changement de code)
+-   `refactor`: Refactoring sans changement de fonctionnalité
+-   `perf`: Amélioration de performance
+-   `test`: Ajout/modification de tests
+-   `build`: Build system ou dépendances
+-   `ci`: Configuration CI/CD
+-   `chore`: Tâches diverses
+
+### Tests
+
+```bash
+# Tests E2E avec Playwright
+pnpm test:e2e
+
+# Tests E2E en mode UI
+pnpm test:e2e:ui
+
+# Tests E2E en mode debug
+pnpm test:e2e:debug
+```
+
+### Storybook
+
+```bash
+# Lancer Storybook en mode développement
+pnpm storybook
+# → Ouvre http://localhost:6006
+
+# Build Storybook pour production
+pnpm build-storybook
+```
 
 ---
 
-## Conventions des commits
+## Architecture des Composants
 
-Dans le but d'avoir structurer nos commits et ainsi faciliter la lecture de l'historique, nous utilisons Commitizen pour formater nos messages de commit. Voici les types de commits que nous utilisons :
+### Système de Design Atomique
 
--   **feat** : Ajout d'une nouvelle fonctionnalité.
--   **fix** : Correction d'un bug.
--   **docs** : Modifications de la documentation.
--   **style** : Changements de style (formatage, espaces, etc.) sans impact sur le code.
--   **refactor** : Refactoring du code sans ajout de fonctionnalité ni correction de bug.
--   **perf** : Amélioration des performances.
--   **test** : Ajout ou correction de tests.
--   **build** : Changements dans le système de build ou les dépendances externes.
--   **ci** : Changements dans le pipeline CI/CD.
--   **chore** : Changements divers qui ne rentrent pas dans les autres catégories.
+Le projet utilise la méthodologie Atomic Design pour organiser les composants :
 
-Dans ce projet pas besoin de comprendre tout le système de configuration qui nous permet d'aboutir à ce résultat. il suffit juste de faire :
+#### 1. Atoms (Atomes) - `src/components/ui/`
 
-```bash
-pnpm commit
+Composants de base réutilisables, indivisibles.
+
+**Exemples:**
+
+-   `Button` - Bouton avec variants
+-   `Input` - Champ de saisie
+-   `Logo` - Logo du site
+-   `Spinner` - Icône de chargement
+
+```tsx
+// src/components/ui/button.tsx
+import { cva, type VariantProps } from 'class-variance-authority';
+
+export const buttonVariants = cva(
+    'inline-flex items-center justify-center cursor-pointer w-full font-medium transition-colors',
+    {
+        variants: {
+            variant: {
+                default:
+                    'bg-primary text-primary-foreground hover:bg-primary/90',
+                destructive:
+                    'bg-destructive text-white hover:bg-destructive/90',
+                outline: 'border border-black bg-transparent hover:bg-muted/50'
+            },
+            size: {
+                default: 'px-[4rem] py-[1.9rem]',
+                sm: 'h-9 rounded-md px-3',
+                lg: 'h-11 rounded-md px-8'
+            }
+        }
+    }
+);
 ```
 
-cette commande va vous poser une série de questions et à la fin, elle va générer un commit avec le bon format voici un exemple de ce à quoi ça ressemble :
+#### 2. Molecules (Molécules) - `src/components/feedback/`, `src/components/forms/`
 
-    ? Select the type of change that you're committing : Obigatoire
-    ? Select the scope of your change (optional) : Obigatoire , exemple : `ui`, `api`, `config` , `composant spécifique`
-    ? Write a short, imperative tense description of the change (max 100 chars) : Obigatoire
-    ? Provide a longer description of the change (optional). Use "|" to break new line : Optionnel
-    Pour le reste des questions, vous pouvez laisser les valeurs par défaut
+Combinaisons d'atomes formant des composants fonctionnels.
 
-## Configuration
+**Exemples:**
 
-### Variables d'Environnement
+-   `Callout` - Message informatif avec icône
+-   `InputError` - Input avec affichage d'erreur
+-   `LoadingState` - État de chargement
+-   `EmptyState` - État vide
 
-Les variables d'environnement jouent un rôle crucial dans la configuration du projet. Voici une explication détaillée de leur gestion dans cette architecture :
+#### 3. Organisms (Organismes) - `src/components/layout/`, `src/components/sections/`
 
--   **Fichiers `.env`** : Les variables d'environnement sont définies dans des fichiers `.env` spécifiques à chaque environnement (développement, production, etc.).
+Sections complexes composées de plusieurs molécules.
 
--   **Validation avec `zod`** : Le fichier `src/config/env.js` utilise la bibliothèque `zod` pour valider les variables d'environnement. Cela garantit que le projet démarre uniquement si toutes les variables nécessaires sont correctement définies et conformes aux attentes.
+**Exemples:**
 
--   **Gestion des Erreurs** : En cas de variable manquante ou incorrecte, `env.js` affiche des messages d'erreur détaillés et colorés dans le terminal grâce à `chalk`. Les erreurs sont formatées avec précision pour faciliter le débogage.
+-   `Header` - En-tête avec navigation
+-   `Footer` - Pied de page
+-   `Hero` - Section hero animée
+-   `Sidebar` - Barre latérale de navigation
 
--   **Exécution Automatique via Node.js** : Le fichier `env.js` est directement importé dans `next.config.js`. En raison du comportement de Node.js, les fonctions définies dans `env.js` sont exécutées dès leur importation. Cela permet de valider les variables d'environnement avant même le démarrage du projet.
+#### 4. Templates - `src/components/layout/`
 
--   **Intégration avec `next.config.js`** : Les variables validées dans `env.js` sont exposées à l'application Next.js via la configuration `env` dans `next.config.js`. Cela permet de les utiliser directement dans le code client et serveur.
+Layouts de page réutilisables.
 
--   **Utilisation Typée** : Pour accéder aux variables d'environnement de manière typée dans le projet, utilisez l'objet `$env` exposé par `env.js`. Cela garantit une utilisation cohérente et sécurisée des variables dans tout le projet.
+**Exemples:**
 
-```javascript
-// Config File : src/config/env.js
-import { $env } from '@/config';
+-   `Container` - Conteneur responsive
+-   `Flex` - Layout flexbox configurable
+-   `ShouldShow` - Rendu conditionnel
 
-export const API_URL = $env.server.API_URL; // Accès typé à la variable d'environnement
+#### 5. Pages - `src/app/` et `src/components/pages/`
+
+Pages complètes ou composants de page complexes.
+
+### Helpers de Layout
+
+#### Container
+
+Composant pour centrer et limiter la largeur du contenu :
+
+```tsx
+<Container maxWidth="140rem" padding="xl">
+    {children}
+</Container>
 ```
 
-Cette approche assure une configuration robuste, sécurisée et facile à maintenir, tout en offrant une expérience de débogage améliorée.
+#### Flex
 
-### TailwindCSS
+Helper pour créer des layouts flexbox :
 
--   Configuré dans `tailwind.config.js`.
--   Thématisation dynamique via `colors.ts`.
+```tsx
+<Flex
+    settings={{
+        align: 'center',
+        justify: 'between',
+        spacing: 'gap-5',
+        isColumn: false
+    }}
+>
+    {children}
+</Flex>
+```
+
+#### ShouldShow
+
+Composant pour le rendu conditionnel :
+
+```tsx
+<ShouldShow
+    when={isLoggedIn}
+    show={<UserProfile />}
+    elseShow={<LoginButton />}
+/>
+```
+
+### Composants Animés
+
+Le projet utilise Framer Motion pour les animations :
+
+**MagneticButton:**
+
+```tsx
+<MagneticButton strength={1} stiffness={200}>
+    <button>Bouton Magnétique</button>
+</MagneticButton>
+```
+
+---
+
+## Système d'Authentification
+
+### Architecture
+
+Le projet implémente un système d'authentification personnalisé et flexible, en cours de développement, qui évite les dépendances lourdes comme `next-auth` ou `better-auth`.
+
+#### Objectif
+
+Créer une solution d'authentification :
+
+-   ✅ Légère et performante
+-   ✅ Compatible avec des APIs tierces
+-   ✅ Extensible (OAuth, 2FA, refresh tokens)
+-   ✅ Type-safe avec TypeScript
+
+### Structure Actuelle
+
+```
+src/
+├── app/api/auth/
+│   └── [...authRoute]/
+│       └── route.ts           # Catch-all route handler
+├── features/auth/
+│   ├── api/
+│   │   ├── endpoint.ts        # Endpoints d'authentification
+│   │   ├── example.api.ts     # Exemple d'API call
+│   │   └── sign-up.api.ts     # API sign-up
+│   ├── components/
+│   │   └── index.tsx          # Export des composants auth
+│   ├── schemas/
+│   │   └── auth-schemas.ts    # Schémas Zod de validation
+│   └── views/
+│       └── auth-page.tsx      # Page d'authentification
+└── lib/auth/
+    └── auth-handler.ts        # MinimalAuth class (en développement)
+```
+
+### MinimalAuth Class (En Cours)
+
+```typescript
+// src/app/api/auth/[...authRoute]/route.ts
+import { MinimalAuth } from '@/lib/auth/auth-handler';
+
+const auth = new MinimalAuth({
+    authEndpoint: '/authentication/sign-in',
+    refreshTokenEndpoint: '/authentication/refresh-token',
+    redirect: {
+        signIn: '/dashboard',
+        signOut: '/login'
+    }
+});
+
+export async function POST(req: NextRequest, { params }) {
+    return auth.handler(req, { params });
+}
+```
+
+### Schémas de Validation
+
+```typescript
+// src/features/auth/schemas/auth-schemas.ts
+import { z } from 'zod';
+
+export const loginSchema = z.object({
+    email: z.string().email('Invalid email address'),
+    password: z.string().min(6, 'Password must be at least 6 characters'),
+    rememberMe: z.boolean().optional().default(false)
+});
+
+export const resetPasswordSchema = z
+    .object({
+        password: z.string().min(6),
+        confirmPassword: z.string().min(6)
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+        message: "Passwords don't match",
+        path: ['confirmPassword']
+    });
+```
+
+### Types d'Authentification
+
+```typescript
+// src/types/auth.d.ts
+type User = {
+    sub: string;
+    email: string;
+    role: string;
+    name?: string;
+    avatar?: string;
+    iat: number;
+    exp: number;
+};
+
+type TokenPayload = {
+    accessToken: string;
+    refreshToken: string;
+};
+
+type SessionData = {
+    user: User;
+    accessToken: string;
+    refreshToken: string;
+    expiresAt: number;
+};
+```
+
+### Middleware de Protection
+
+```typescript
+// src/middleware.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { APP_ROUTES } from './lib/constants/routes.constants';
+
+const protectedRoutes = [APP_ROUTES.dashboard.root];
+
+export async function middleware(request: NextRequest) {
+    const { pathname } = request.nextUrl;
+    const tokenPayload = ''; // TODO: Get from session
+
+    const isProtectedRoute = protectedRoutes.some((route) =>
+        pathname.startsWith(route)
+    );
+
+    if (!tokenPayload && isProtectedRoute) {
+        return NextResponse.redirect(new URL(APP_ROUTES.login, request.url));
+    }
+
+    return NextResponse.next();
+}
+```
+
+### Roadmap Authentification
+
+**Fonctionnalités en cours de développement:**
+
+-   [x] Configuration de base MinimalAuth
+-   [x] Schémas de validation Zod
+-   [x] Route handlers API
+-   [ ] Bearer token dans les fetch requests
+-   [ ] getSession() côté client
+-   [ ] getToken() côté client
+-   [ ] Refresh token automatique
+-   [ ] OAuth providers (Google, GitHub)
+-   [ ] Two-Factor Authentication (2FA)
+-   [ ] Session management avec cookies
+
+---
+
+## Gestion d'État
+
+### Architecture Multi-Store
+
+Le projet utilise une approche hybride pour la gestion d'état :
+
+1. **Zustand** - État client global
+2. **TanStack Query** - État serveur et cache
+3. **React Context** - État local partagé (si nécessaire)
+
+### Zustand - État Global
+
+#### UI Store
+
+```typescript
+// src/stores/ui.store.ts
+import { create } from 'zustand';
+import { persist, devtools } from 'zustand/middleware';
+
+interface UIState {
+    // Theme
+    theme: Theme;
+    setTheme: (theme: Theme) => void;
+
+    // Sidebar
+    isSidebarCollapsed: boolean;
+    toggleSidebar: () => void;
+
+    // Modals
+    modals: Record<string, boolean>;
+    openModal: (modalId: string) => void;
+    closeModal: (modalId: string) => void;
+
+    // Notifications
+    notifications: Array<Notification>;
+    addNotification: (notification: Omit<Notification, 'id'>) => void;
+}
+
+export const useUIStore = create<UIState>()(
+    devtools(
+        persist(
+            (set) => ({
+                theme: 'main-theme',
+                isSidebarCollapsed: false,
+                modals: {},
+                notifications: []
+                // ... actions
+            }),
+            {
+                name: 'ui-storage',
+                partialize: (state) => ({
+                    theme: state.theme,
+                    isSidebarCollapsed: state.isSidebarCollapsed
+                })
+            }
+        )
+    )
+);
+```
+
+#### Selectors Optimisés
+
+```typescript
+// Hooks de sélection pour éviter les re-renders
+export const useTheme = () => useUIStore((state) => state.theme);
+export const useSidebar = () =>
+    useUIStore((state) => ({
+        isCollapsed: state.isSidebarCollapsed,
+        toggle: state.toggleSidebar
+    }));
+```
+
+### TanStack Query - État Serveur
+
+Configuration dans `src/lib/react-query/react-query.ts` :
+
+```typescript
+import { QueryClient } from '@tanstack/react-query';
+
+export const queryConfig = {
+    queries: {
+        refetchOnWindowFocus: false,
+        retry: (failureCount, error) => {
+            if (error?.status >= 400 && error?.status < 500) {
+                return false;
+            }
+            return failureCount < 3;
+        },
+        staleTime: 1000 * 60 * 5 // 5 minutes
+    },
+    mutations: {
+        retry: false
+    }
+};
+
+export const createQueryClient = () => {
+    return new QueryClient({ defaultOptions: queryConfig });
+};
+```
+
+#### Exemple d'Utilisation
+
+```typescript
+// src/features/auth/api/example.api.ts
+import { useQuery } from '@tanstack/react-query';
+import { apiClient } from '@/lib/api/client';
+
+interface User {
+    id: number;
+    name: string;
+    email: string;
+}
+
+export const getUser = async () => {
+    return await apiClient.get<User>('https://api.example.com/user/1');
+};
+
+export const useGetUser = () =>
+    useQuery<User, Error>({
+        queryKey: ['user'],
+        queryFn: getUser
+    });
+```
+
+### React Context
+
+Utilisé pour l'état local partagé dans une partie de l'app :
+
+```typescript
+// src/context/example.context.tsx
+import { createContext, useContext, useState } from 'react';
+
+interface ExampleContextValue {
+    count: number;
+    increment: () => void;
+    decrement: () => void;
+}
+
+const ExampleContext = createContext<ExampleContextValue | undefined>(
+    undefined
+);
+
+export function ExampleProvider({ children, initialCount = 0 }) {
+    const [count, setCount] = useState(initialCount);
+
+    const value = {
+        count,
+        increment: () => setCount((prev) => prev + 1),
+        decrement: () => setCount((prev) => prev - 1)
+    };
+
+    return (
+        <ExampleContext.Provider value={value}>
+            {children}
+        </ExampleContext.Provider>
+    );
+}
+
+export function useExample() {
+    const context = useContext(ExampleContext);
+    if (!context) {
+        throw new Error('useExample must be used within ExampleProvider');
+    }
+    return context;
+}
+```
+
+---
+
+## API et Requêtes HTTP
+
+### Client API
+
+Le projet utilise un client API personnalisé basé sur Fetch API :
+
+```typescript
+// src/lib/api/client.ts
+class ApiClient {
+    private baseURL: string;
+    private defaultHeaders: Record<string, string>;
+
+    constructor(baseURL: string) {
+        this.baseURL = baseURL;
+        this.defaultHeaders = {
+            'Content-Type': 'application/json'
+        };
+    }
+
+    async request<T>(endpoint: string, options: RequestOptions) {
+        const url = this.buildUrl(endpoint, options.params);
+        const headers = await this.getHeaders(options.headers);
+
+        const response = await fetch(url, {
+            method: options.method || 'GET',
+            headers,
+            body: options.body ? JSON.stringify(options.body) : undefined,
+            cache: options.cache,
+            signal: controller.signal
+        });
+
+        return this.handleResponse<T>(response);
+    }
+
+    async get<T>(endpoint: string, options?) {
+        return this.request<T>(endpoint, { ...options, method: 'GET' });
+    }
+
+    async post<T>(endpoint: string, body?, options?) {
+        return this.request<T>(endpoint, { ...options, method: 'POST', body });
+    }
+}
+
+export const apiClient = new ApiClient(
+    process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'
+);
+```
+
+### Types de Réponse
+
+```typescript
+export type ApiResponse<T = any> = {
+    data?: T;
+    error?: string;
+    success: boolean;
+    message?: string;
+};
+```
+
+### Gestion des Cookies SSR
+
+Le client gère automatiquement les cookies côté serveur :
+
+```typescript
+private async getHeaders(customHeaders?: Record<string, string>) {
+    const headers = { ...this.defaultHeaders, ...customHeaders };
+
+    // Côté serveur : récupération des cookies
+    if (typeof window === 'undefined') {
+        const { cookies } = await import('next/headers');
+        const cookieStore = await cookies();
+        const cookieString = cookieStore
+            .getAll()
+            .map((c) => `${c.name}=${c.value}`)
+            .join('; ');
+
+        if (cookieString) {
+            headers.Cookie = cookieString;
+        }
+    }
+
+    return headers;
+}
+```
+
+### Pattern d'Utilisation
+
+```typescript
+// 1. Définir le type de réponse
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+}
+
+// 2. Créer la fonction API
+export const getProduct = async (id: number) => {
+    return await apiClient.get<Product>(`/products/${id}`);
+};
+
+// 3. Créer le hook React Query
+export const useGetProduct = (id: number) =>
+    useQuery<Product, Error>({
+        queryKey: ['product', id],
+        queryFn: () => getProduct(id),
+        enabled: !!id
+    });
+
+// 4. Utiliser dans un composant
+function ProductDetail({ id }: { id: number }) {
+    const { data, isLoading, error } = useGetProduct(id);
+
+    if (isLoading) return <Loading />;
+    if (error) return <Error message={error.message} />;
+
+    return <div>{data.name}</div>;
+}
+```
 
 ---
 
 ## Styles et Thèmes
 
--   **Styles Globaux** : Définis dans `globals.css` avec TailwindCSS.
--   **Thèmes Dynamiques** : Gérés via `colors.ts` et Zustand.
+### TailwindCSS 4
 
-1. **`colors.ts`** :
+Configuration dans `postcss.config.mjs` :
 
-    - Définit l'objet `ThemeColor`, qui contient plusieurs thèmes (par exemple, `main-theme`, `blue-theme`).
-    - Chaque thème inclut un `ColorScheme` avec des nuances prédéfinies (`50`, `100`, ..., `900`) pour les couleurs `primary`, `secondary` et `accent`.
-    - Exporte `colorsConfigFn` pour générer des variables compatibles avec TailwindCSS pour un thème dynamique.
+```javascript
+const config = {
+    plugins: {
+        '@tailwindcss/postcss': {}
+    }
+};
+```
 
-2. **`setThemeColor.ts`** :
+### Styles Globaux
 
-    - Applique dynamiquement les couleurs du thème sélectionné aux variables CSS en utilisant `document.documentElement.style.setProperty`.
-    - Parcourt les entrées `ColorShade` du thème sélectionné et met à jour les variables `--<color>-<shade>`.
+```css
+/* src/app/globals.css */
+@import 'tailwindcss';
 
-3. **Intégration avec TailwindCSS** :
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 145, 194, 228;
+    --background-end-rgb: 254, 255, 243;
+}
 
-    - Le fichier `tailwind.config.ts` utilise `colorsConfigFn` pour mapper les couleurs du thème aux classes TailwindCSS.
-    - Exemple : `bg-primary-500` est mappé à `var(--primary-500)`.
+@layer base {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        transition: color, background-color 200ms ease;
+    }
 
-4. **Changement de Thème** :
-    - Le composant `ThemeProvider` dans `themecolors.provider.tsx` :
-        - Récupère le thème actuel depuis le store Zustand `useUIStore`.
-        - Applique les couleurs du thème en utilisant `setThemeColor`.
-        - Assure que la page est visible uniquement après l'application du thème pour éviter un flash de contenu non stylé (TODO: cette partie devra être optimisé).
+    html {
+        font-size: 62.5%; /* 1rem = 10px */
+    }
 
-### Comment Ajouter un Nouveau Thème
+    body {
+        font-family: 'Urbanist Variable', sans-serif;
+        font-size: 1.6rem;
+    }
 
-1. Ajoutez un nouveau thème à l'objet `colors` dans `colors.ts`.
-2. Mettez à jour le type `Theme` pour inclure la clé du nouveau thème.
-3. TailwindCSS détectera automatiquement le nouveau thème via `colorsConfigFn`.
+    h1 {
+        @apply text-[4.8rem];
+        font-family: 'DM Serif Display', serif;
+    }
+}
+```
+
+### Utilitaires Personnalisés
+
+```css
+@layer utilities {
+    .flex-full-center {
+        @apply flex items-center justify-center;
+    }
+
+    .hero-bg {
+        background: linear-gradient(
+            180deg,
+            rgb(var(--background-start-rgb)) 0%,
+            rgb(var(--background-end-rgb)) 100%
+        );
+    }
+
+    .link {
+        @apply relative transition-all w-max hover:font-bold;
+
+        &::after {
+            content: '';
+            @apply absolute -bottom-2 left-0 w-full h-[.22rem] bg-black;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
+    }
+}
+```
+
+### Polices
+
+```typescript
+// src/app/layout.tsx
+import '@fontsource-variable/urbanist'; // 100-900 weights
+import '@fontsource/dm-serif-display';
+import '@fontsource/dm-serif-text';
+```
+
+### Utility Function
+
+```typescript
+// src/lib/utils/generics.ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
+}
+```
 
 ---
 
-## API et Gestion d'État
+## Formulaires et Validation
 
--   **React Query** : Gère les appels API et le cache.
--   **Zustand** : Gère l'état global avec une API simple.
+### React Hook Form + Zod
+
+Le projet utilise React Hook Form avec résolution Zod pour une validation type-safe :
+
+#### Composant Form Wrapper
+
+```typescript
+// src/components/forms/form.tsx
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm, useFieldArray } from 'react-hook-form';
+import type { Schema } from 'zod';
+
+interface FormProps<TFormValues> {
+    validationSchema?: Schema;
+    onSubmit: SubmitHandler<TFormValues>;
+    children: (methods, fieldArray) => React.ReactNode;
+    showDevTools?: boolean;
+}
+
+export const Form = <TFormValues>({
+    validationSchema,
+    onSubmit,
+    children,
+    showDevTools = true
+}: FormProps<TFormValues>) => {
+    const methods = useForm<TFormValues>({
+        mode: 'onChange',
+        resolver: validationSchema ? zodResolver(validationSchema) : undefined
+    });
+
+    const fieldArray = useFieldArray({
+        control: methods.control,
+        name: 'items'
+    });
+
+    return (
+        <>
+            <form onSubmit={methods.handleSubmit(onSubmit)}>
+                {children(methods, fieldArray)}
+            </form>
+            {process.env.NODE_ENV === 'development' && showDevTools && (
+                <DevTool control={methods.control} />
+            )}
+        </>
+    );
+};
+```
+
+#### Exemple d'Utilisation
+
+```typescript
+import { Form } from '@/components/forms';
+import { loginSchema, type LoginFormValues } from '@/features/auth/schemas';
+
+function LoginForm() {
+    const onSubmit = (data: LoginFormValues) => {
+        console.log(data);
+    };
+
+    return (
+        <Form validationSchema={loginSchema} onSubmit={onSubmit}>
+            {({ register, formState: { errors } }) => (
+                <>
+                    <Input
+                        {...register('email')}
+                        error={errors.email?.message}
+                        label="Email"
+                    />
+                    <Input
+                        {...register('password')}
+                        type="password"
+                        error={errors.password?.message}
+                        label="Password"
+                    />
+                    <Button type="submit">Se connecter</Button>
+                </>
+            )}
+        </Form>
+    );
+}
+```
+
+### Composant Input
+
+```typescript
+// src/components/ui/input.tsx
+import { forwardRef } from 'react';
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+    error?: string;
+    label?: string;
+}
+
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+    ({ className, error, label, id, ...props }, ref) => {
+        return (
+            <div className="space-y-2">
+                {label && <label htmlFor={id}>{label}</label>}
+                <input
+                    id={id}
+                    ref={ref}
+                    className={cn(
+                        'flex h-10 w-full rounded-md border px-3 py-2',
+                        error && 'border-destructive',
+                        className
+                    )}
+                    {...props}
+                />
+                {error && <p className="text-sm text-destructive">{error}</p>}
+            </div>
+        );
+    }
+);
+```
 
 ---
 
 ## Tests
 
--   **Tests Unitaires** : Écrits avec Jest.
--   **Tests End-to-End** : Écrits avec Playwright.
+### Playwright
+
+Configuration dans `playwright.config.ts` :
+
+```typescript
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+    testDir: './e2e/test',
+    fullyParallel: true,
+    forbidOnly: !!process.env.CI,
+    retries: process.env.CI ? 2 : 0,
+    reporter: 'html',
+    use: {
+        trace: 'on-first-retry'
+    },
+    projects: [
+        { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+        { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+        { name: 'webkit', use: { ...devices['Desktop Safari'] } }
+    ]
+});
+```
+
+### Exemple de Test
+
+```typescript
+// e2e/test/example.spec.ts
+import { expect, test } from '@playwright/test';
+
+test("Page d'accueil avec titre correct", async ({ page }) => {
+    await page.goto('http://localhost:3000/');
+    await expect(page).toHaveTitle(/NextJs Template/);
+});
+
+test('Navigation fonctionnelle', async ({ page }) => {
+    await page.goto('http://localhost:3000/');
+    await page.getByRole('link', { name: 'Dashboard' }).click();
+    await expect(page.url()).toContain('/dashboard');
+});
+```
 
 ---
 
-## Bonnes Pratiques
+## Storybook
 
-1.  **Qualité du Code** :
+### Configuration
 
-    -   Utilisez ESLint et Prettier.
-    -   Suivez les conventions de message de commit imposées par Commitizen.
-    -   Utilisez Husky pour exécuter des vérifications avant les commits.
+````typescript
+### Storybook
 
-    ### Quelques bonnes pratiques de développement conforme à eslint :
+Configuration dans `.storybook/main.ts` :
 
-    -   Utilisez des hooks personnalisés pour la logique réutilisable.
-    -   Évitez les effets secondaires dans les composants le plus que possible.
-    -   importer les types avec `import type {}` pour éviter d'importer des modules inutiles.
-    -   Si une promesse est utilisée sans await, utilisez le mot clé `void` pour éviter les avertissements de linting ex :
+```typescript
+// .storybook/main.ts
+import type { StorybookConfig } from '@storybook/nextjs';
 
-    ```ts
-    void fetchData();
-    ```
-
-2.  **Conception des Composants** :
-
-    -   Utilisez les principes du design atomique pour les composants.
-
-    ### Explications du design atomique
-
-        - **Atomes** : Composants de base (ex : boutons, champs de texte).
-        - **Molécules** : Combinaisons d'atomes (ex : formulaires).
-        - **Organismes** : Sections complexes (ex : en-têtes, pieds de page).
-        - **Layout** : Dispositions de page.
-        - **Pages** : Dans le cas ou toutes la page doit être en client , il est important de l'extrait dans fichier afin de laisser son parent page.tsx en SSR.
-
-3.  **Gestion d'État** :
-
-    -   Utilisez React Query pour l'état des API.
-    -   Utilisez Zustand pour l'état global.
-
-4.  **Avoiding Provider Hell with provider tree** :
-    -   Utilisez le fichier `src/app/provider.tsx` pour regrouper tous les providers nécessaires.
-    -   Évitez de les imbriquer dans chaque module.
-    -   Exemple :
-    ```tsx
-    import { ThemeProvider } from '@/shared/providers/themecolors.provider';
-    import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-    import type { PropsWithChildren } from 'react';
-    import { buildProvidersTree } from '../shared/utils/build-providers-tree';
-    const queryClient = new QueryClient();
-    const ProviderTree = buildProvidersTree([
-        [QueryClientProvider, { client: queryClient }],
-        [ThemeProvider, {}]
-    ]);
-    ```
-5.  **Utilisation de Storybook** :
-
-    -   Utilisez Storybook pour documenter et tester les composants.
-    -   Créez des histoires pour chaque composant dans le dossier `src/shared/components` par exemple.
-
-    # Configuration de Storybook
-
-## 1. Installation de Storybook
-
-```bash
-pnpx storybook init
-```
-
-Après cette commande, Storybook génère un dossier ".storybook" dans lequel il y a deux fichiers :
-
--   **main.ts** qui contient les fichiers de configuration de Storybook.
-    -   stories : définit les configurations pour les points de terminaison qui devront être pris en compte par Storybook.
-    -   addons : la liste des addons :
-        -   @chromatic : pour les tests de régression visuelle.
-        -   themes : pour supporter les différents changements de thème.
-        -   a11y : pour les tests d'accessibilité.
--   **preview.ts** : contient tous les paramètres permettant de modifier l'interface de Storybook comme la police, la couleur, etc.
-
-## 2. Lancer Storybook
-
-```bash
-pnpm run storybook
-```
-
-## 3. Écrire une première story
-
-Les stories que nous écrivons doivent être pertinentes, des éléments de notre composant qui représentent un caractère testable.
-
-> Voici une liste de packages intéressants pour faciliter certains aspects de la construction d'un composant :
->
-> -   **cva** : permet, avec TailwindCSS, de créer des composants ayant des variantes de style augmentant ainsi la réutilisabilité de notre composant.
-> -   **clsx** : permet d'appliquer sous forme d'objet les classes dynamiques.
-
-### 3.1. Créer dans le dossier du composant une story
-
-Exemple : Pour un composant Button, créer le fichier `button.stories.tsx`.
-
-### 3.2. Importer les types (Meta et StoryObj) ainsi que le composant de la story
-
-```tsx
-import type { Meta, StoryObj } from '@storybook/react';
-```
-
-### 3.3. Créer l'objet meta qui permet de décrire notre story : nom de la story, le composant utilisé, etc.
-
-```tsx
-const meta = {
-    title: 'Button',
-    component: Button
-} satisfies Meta<typeof Button>;
-
-export default meta;
-```
-
-### 3.4. Créer une variante
-
-Nos variantes dépendent de la logique de notre composant.
-
-```tsx
-type Story = StoryObj<typeof Button>;
-
-export const Primary: Story = {};
-```
-
-### Component Story Format
-
-Ce format, beaucoup plus présent dans la version 8, permet de définir des props par défaut en type objet.
-
-```tsx
-export const Secondary: Story = {
-    args: {
-        children: 'Secondary'
+const config: StorybookConfig = {
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+    addons: [
+        '@storybook/addon-essentials',
+        '@chromatic-com/storybook',
+        '@storybook/addon-a11y',           // Tests d'accessibilité
+        '@storybook/addon-vitest',         // Intégration Vitest
+        '@storybook/addon-styling-webpack' // Support styling
+    ],
+    framework: {
+        name: '@storybook/nextjs',
+        options: {}
+    },
+    docs: {
+        autodocs: true
     }
 };
+````
 
-// Alternative
-export const Secondary: Story = {
-    render: () => <Button>Secondary</Button>
-};
-```
+**Version:** Storybook 9.1.1 avec Next.js integration
 
-### Partager les props des composants entre toutes les stories
+````
 
-Souvent, on voudrait que nos stories aient les mêmes props par défaut. Dans ce cas, l'objet `args` doit être défini dans l'objet meta. Si une story ne définit pas d'arguments, elle prendra automatiquement les valeurs définies dans l'objet meta.
+### Exemple de Story
 
-```tsx
+```typescript
+// src/components/ui/button.stories.tsx
+import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from './button';
+
 const meta = {
-    title: 'Button',
+    title: 'UI/Button',
     component: Button,
     args: {
         children: 'Button'
     }
-} satisfies Meta;
-```
+} satisfies Meta<typeof Button>;
 
-### Ajouter les stories des variantes pour nos boutons
+export default meta;
+type Story = StoryObj<typeof Button>;
 
-```tsx
 export const Primary: Story = {
     args: {
-        variant: 'primary'
+        variant: 'default'
     }
 };
 
-export const Secondary: Story = {
+export const Destructive: Story = {
     args: {
-        children: 'Secondary',
-        variant: 'secondary'
+        variant: 'destructive'
     }
 };
+
+export const Loading: Story = {
+    args: {
+        isLoading: true
+    }
+};
+````
+
+---
+
+## Conventions et Bonnes Pratiques
+
+### TypeScript
+
+1. **Import de Types**
+
+    ```typescript
+    // ✅ Bon
+    import type { User } from './types';
+
+    // ❌ Mauvais
+    import { User } from './types';
+    ```
+
+2. **No Any**
+
+    ```typescript
+    // ❌ Éviter
+    function process(data: any) {}
+
+    // ✅ Préférer
+    function process<T>(data: T) {}
+    ```
+
+3. **Promesses sans await**
+    ```typescript
+    // Si une promesse n'est pas await, utiliser void
+    void fetchData();
+    ```
+
+### Conventions de Nommage
+
+-   **Fichiers**: `kebab-case.tsx`, `user-profile.tsx`
+-   **Composants**: `PascalCase`, `UserProfile`
+-   **Hooks**: `camelCase`, `useUserData`
+-   **Constants**: `UPPER_SNAKE_CASE`, `API_URL`
+-   **Types**: `PascalCase`, `UserData`
+
+### Lint-Staged Configuration
+
+Le projet utilise `lint-staged` pour automatiser le linting et le formatage avant les commits :
+
+```json
+{
+    "{src,e2e,.storybook}/**/*.(ts|tsx|js)": [
+        "eslint --fix",
+        "npx prettier . --write"
+    ]
+}
 ```
 
-> _Quand nous créons un composant, il n'est pas forcément nécessaire de lui passer l'attribut `className`. Il faut garder à l'esprit que tout dépend de ce que nous voulons faire._
+**Fonctionnement:**
+
+-   Cible les fichiers dans `src/`, `e2e/`, et `.storybook/`
+-   Applique ESLint avec auto-fix
+-   Formate avec Prettier
+-   S'exécute uniquement via `pnpm commit` (pas de pre-commit hook automatique)
+
+### Structure des Fichiers
+
+```
+feature/
+├── components/          # Composants de la feature
+├── hooks/              # Hooks spécifiques
+├── api/                # API calls
+├── schemas/            # Validation schemas
+├── types/              # Types TypeScript
+├── utils/              # Utilitaires
+├── stores/             # État local
+└── index.ts            # Export public
+```
+
+### Commits Conventionnels
+
+Format : `type(scope): message`
+
+```bash
+feat(auth): add login form validation
+fix(ui): correct button hover state
+docs(readme): update installation instructions
+refactor(api): simplify error handling
+```
+
+### Provider Tree Pattern
+
+Éviter le "Provider Hell" :
+
+```typescript
+// ❌ Mauvais
+<Provider1>
+    <Provider2>
+        <Provider3>{children}</Provider3>
+    </Provider2>
+</Provider1>;
+
+// ✅ Bon
+const ProviderTree = buildProvidersTree([
+    [Provider1, {}],
+    [Provider2, {}],
+    [Provider3, {}]
+]);
+
+<ProviderTree>{children}</ProviderTree>;
+```
 
 ---
 
 ## Déploiement
 
--   Déployez sur Server Via docker file géré par la team devops.
+### Build de Production
+
+```bash
+# Build l'application
+pnpm build
+
+# Le build génère un dossier .next/ et utilise standalone output
+# Configuration dans next.config.ts
+```
+
+### Configuration Next.js
+
+```typescript
+// next.config.ts
+const nextConfig = {
+    reactStrictMode: true,
+    output: 'standalone' // Pour Docker
+};
+```
+
+### Docker (Configuration par la team DevOps)
+
+Le projet est configuré pour être déployé via Docker.
+
+### Variables d'Environnement en Production
+
+Assurez-vous de définir toutes les variables requises :
+
+```env
+NEXT_PUBLIC_API_URL="https://production-api.com"
+SESSION_SECRET="production-secret-very-long-and-secure"
+NODE_ENV="production"
+```
 
 ---
 
-## Conclusion
+## Support et Contribution
 
-Cette documentation fournit une vue d'ensemble complète du projet. En suivant la structure et les pratiques décrites, les nouveaux développeurs peuvent rapidement s'intégrer et contribuer efficacement.
+### Obtenir de l'Aide
+
+-   📖 Consulter cette documentation
+-   💬 Contacter l'équipe de développement
+-   🐛 Créer une issue sur le repository
+
+### Contribuer
+
+1. Créer une branche depuis `improvements`
+2. Faire les modifications
+3. Utiliser `pnpm commit` pour créer un commit conventionnel
+4. Créer une Pull Request vers `improvements`
+
+---
+
+**Dernière mise à jour:** 15 octobre 2025  
+**Maintenu par:** Core Team  
+**License:** Propriétaire

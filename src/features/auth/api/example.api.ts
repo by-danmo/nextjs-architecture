@@ -1,6 +1,6 @@
 // Chaque fichier devra concerner une seule ressource à get.
 
-import { api } from '@/shared/lib/api-client';
+import { api } from '@/lib/http-client';
 import { useQuery } from '@tanstack/react-query';
 
 // 1 : Créer le type de la réponse

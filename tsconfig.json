@@ -28,7 +28,7 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "eslint.config.js",
-        "src/config/env.ts",
+        "src/config/env.config.ts",
         "src/shared/utils/format-env-error.ts"
     ],
     "exclude": ["node_modules"]
