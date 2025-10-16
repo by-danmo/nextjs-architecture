@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { APP_ROUTES } from './config/app-route.config';
-import { getServerTokenPayload } from './shared/lib/auth/token';
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
+import { APP_ROUTES } from './lib/constants/routes.constants';
 
 const protectedRoutes = [APP_ROUTES.dashboard.root];
 
@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     // get Server Token Payload
-    const tokenPayload = await getServerTokenPayload();
+    const tokenPayload = '';
 
     // Verify if the route is protected
     const isProtectedRoute = protectedRoutes.some((route) =>
