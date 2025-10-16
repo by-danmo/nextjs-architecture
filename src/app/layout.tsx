@@ -5,8 +5,8 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 import { siteConfig } from '@/config';
-import '../styles/globals.css';
-import { Provider } from './provider';
+import { Provider } from '@/providers/root.provider';
+import './globals.css';
 
 export const metadata: Metadata = siteConfig.meta;
 

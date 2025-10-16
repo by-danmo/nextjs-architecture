@@ -1,5 +1,4 @@
-/** @type {import('next').NextConfig} */
-import { createEnv } from './src/config/env';
+import { createEnv } from './src/config/env.config';
 createEnv();
 const nextConfig = {
     reactStrictMode: true,
