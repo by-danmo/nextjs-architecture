@@ -1,0 +1,31 @@
+{
+  "pages": {
+    "/(landing)/page": [
+      "static/chunks/a1078_next_dist_336f6941._.js",
+      "static/chunks/07c83_SideQuest_nextjs-architecture-blank_apps_web_src_app_favicon_ico_mjs_04bfae43._.js",
+      "static/chunks/Dev_SideQuest_nextjs-architecture-blank_96dfba4f._.css",
+      "static/chunks/8ac43__pnpm_05db0487._.js",
+      "static/chunks/Dev_SideQuest_nextjs-architecture-blank_apps_web_src_d36c4b93._.js",
+      "static/chunks/Dev_SideQuest_nextjs-architecture-blank_apps_web_src_app_layout_tsx_f8278685._.js",
+      "static/chunks/a1078_next_dist_client_components_builtin_global-error_aa38c68d.js",
+      "static/chunks/f621e_motion_dist_es_framer-motion_dist_es_render_6512fa3c._.js",
+      "static/chunks/f621e_motion_dist_es_framer-motion_dist_es_animation_ea1f5098._.js",
+      "static/chunks/f621e_motion_dist_es_framer-motion_dist_es_projection_c1c72162._.js",
+      "static/chunks/f621e_motion_dist_es_framer-motion_dist_es_eb033da9._.js",
+      "static/chunks/f621e_motion_dist_es_2fa85939._.js",
+      "static/chunks/a1078_next_32b1bee8._.js",
+      "static/chunks/Dev_SideQuest_nextjs-architecture-blank_1586e003._.js",
+      "static/chunks/Dev_SideQuest_nextjs-architecture-blank_apps_web_src_9f7a43cc._.js",
+      "static/chunks/799a0_nextjs-architecture-blank_apps_web_src_app_(landing)_page_tsx_aa38c68d._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_7f345a8a._.js",
+      "static/chunks/a1078_next_dist_compiled_react-dom_35bc5fb2._.js",
+      "static/chunks/a1078_next_dist_compiled_next-devtools_index_52b14410.js",
+      "static/chunks/a1078_next_dist_compiled_dddc2c79._.js",
+      "static/chunks/a1078_next_dist_client_3869cecf._.js",
+      "static/chunks/a1078_next_dist_668ae2b9._.js",
+      "static/chunks/ab6f0_@swc_helpers_cjs_abe598f8._.js",
+      "static/chunks/Dev_SideQuest_nextjs-architecture-blank_apps_web_a0ff3932._.js",
+      "static/chunks/turbopack-Dev_SideQuest_nextjs-architecture-blank_apps_web_55401b1b._.js"
+    ]
+  }
+}

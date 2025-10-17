@@ -1,0 +1,9 @@
+{
+  "name": "@mono/trpc",
+  "version": "1.0.0",
+  "private": true,
+  "peerDependencies": {
+    "@trpc/server": "^11.6.0",
+    "zod": "^4.1.12"
+  }
+}

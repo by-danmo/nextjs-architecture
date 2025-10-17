@@ -31,12 +31,5 @@ Estimated release dates:
    - Environments: .env
 
  [32m[1m✓[22m[39m Starting...
- [32m[1m✓[22m[39m Compiled middleware in 127ms
- [32m[1m✓[22m[39m Ready in 803ms
- [37m[1m○[22m[39m Compiling / ...
- [32m[1m✓[22m[39m Compiled / in 1828ms
- GET / [32m200[39m in 2263ms
- [32m[1m✓[22m[39m Compiled /favicon.ico in 119ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 374ms
- [32m[1m✓[22m[39m Compiled middleware in 2ms
-[?25h
+ [32m[1m✓[22m[39m Compiled middleware in 89ms
+ [32m[1m✓[22m[39m Ready in 749ms
