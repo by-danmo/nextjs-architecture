@@ -1,8 +1,0 @@
-{
-  "pages": {},
-  "app": {
-    "[project]/Dev/SideQuest/nextjs-architecture-blank/apps/web/src/app/_not-found/page": []
-  },
-  "appUsingSizeAdjust": true,
-  "pagesUsingSizeAdjust": false
-}

@@ -10,16 +10,20 @@
 /coverage
 
 # next.js
-/.next/
-/.vscode/
-/out/
+.next
+.vscode
+out
 
 
 #backend 
-/dist/
+dist
 
 # production
-/build
+build
+
+#turbo
+
+.turbo
 
 # misc
 .DS_Store
