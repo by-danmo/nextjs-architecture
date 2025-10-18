@@ -11,6 +11,8 @@ export const trpc: CreateTRPCReact<AppRouter, object> = createTRPCReact<
     object
 >();
 
+export type TRPCClient = typeof trpc;
+
 export const trpcClient = trpc.createClient({
     links: [
         httpBatchLink({

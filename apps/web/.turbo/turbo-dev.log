@@ -157,3 +157,46 @@
  [32m[1m✓[22m[39m Compiled in 114ms
 { data: [90mundefined[39m }
  GET / [32m200[39m in 219ms
+
+[31m✘[39m node v22.19.0, and next.js v15.5.5 are [31mnot yet supported[39m in the Community edition of [33mConsole Ninja[39m.
+We are working hard on it for you [36mhttps://tinyurl.com/3h9mtwra[39m.
+
+Estimated release dates:
+  - Community users: [36maround 13th December, 2025 [1m(subject to team availability)[22m[39m
+[33m  - PRO users[39m:       [1m[32mpriority access is available now[39m[22m
+
+
+[31m✘[39m node v22.19.0, and next.js v15.5.5 are [31mnot yet supported[39m in the Community edition of [33mConsole Ninja[39m.
+We are working hard on it for you [36mhttps://tinyurl.com/3h9mtwra[39m.
+
+Estimated release dates:
+  - Community users: [36maround 13th December, 2025 [1m(subject to team availability)[22m[39m
+[33m  - PRO users[39m:       [1m[32mpriority access is available now[39m[22m
+
+ [32m[1m✓[22m[39m Compiled in 114ms
+ [32m[1m✓[22m[39m Compiled / in 15ms
+{ data: [90mundefined[39m }
+ GET / [32m200[39m in 223ms
+ [32m[1m✓[22m[39m Compiled in 133ms
+{ data: [90mundefined[39m }
+ GET / [32m200[39m in 215ms
+ GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 224ms
+ [32m[1m✓[22m[39m Compiled in 125ms
+ [31m[1m⨯[22m[39m ReferenceError: szd is not defined
+    at __TURBOPACK__module__evaluation__ (src/app/(landing)/page.tsx:17:1)
+[0m [90m 15 |[39m     )[33m;[39m
+ [90m 16 |[39m }
+[31m[1m>[22m[39m[90m 17 |[39m szd[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m
+ [90m 18 |[39m[0m {
+  digest: [32m'873222472'[39m
+}
+ GET / [31m500[39m in 406ms
+ GET /favicon.ico [32m200[39m in 231ms
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload when ./Dev/SideQuest/nextjs-architecture-blank/apps/web/src/app/(landing)/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+ [32m[1m✓[22m[39m Compiled in 117ms
+{ data: [90mundefined[39m }
+ GET / [32m200[39m in 248ms
+ GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 247ms

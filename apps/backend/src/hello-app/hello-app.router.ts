@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { helloAppSchema } from './hello-app.schema';
 import { HelloAppService } from './hello-app.service';
 
-@Router()
+@Router({ alias: 'hello' })
 export class HelloApp {
   constructor(private readonly helloAppService: HelloAppService) {}
 
