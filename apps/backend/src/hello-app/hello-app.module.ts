@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { HelloAppRouter } from './hello-app.router';
+import { HelloApp } from './hello-app.router';
 import { HelloAppService } from './hello-app.service';
 
 @Module({
-  providers: [HelloAppService, HelloAppRouter],
+  providers: [HelloAppService, HelloApp],
 })
 export class HelloAppModule {}

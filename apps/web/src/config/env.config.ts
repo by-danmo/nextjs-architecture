@@ -42,24 +42,29 @@ export const formatEnvError = (error: any) => {
 export const $env = {
     server: {
         NODE_ENV: process.env.NODE_ENV,
-        SESSION_SECRET: process.env.SESSION_SECRET
+        TRPC_URL: process.env.TRPC_URL
     },
     client: {
-        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL
+        NEXT_PUBLIC_TRPC_URL: process.env.NEXT_PUBLIC_TRPC_URL
     }
 };
+const EnvSchema = z.object({
+    server: z.object({
+        NODE_ENV: z.enum(['development', 'test', 'production']),
+        TRPC_URL: z.string().min(1)
+    }),
+    client: z.object({
+        NEXT_PUBLIC_TRPC_URL: z.string().min(1)
+    })
+});
+
+type InferredEnv = z.infer<typeof EnvSchema>;
+type ServerEnv = InferredEnv['server'];
+type ClientEnv = InferredEnv['client'];
+
+export interface EnvType extends ServerEnv, ClientEnv {}
 
 export const createEnv = () => {
-    const EnvSchema = z.object({
-        server: z.object({
-            NODE_ENV: z.enum(['development', 'test', 'production']),
-            SESSION_SECRET: z.string().min(1)
-        }),
-        client: z.object({
-            NEXT_PUBLIC_API_URL: z.string().url()
-        })
-    });
-
     const parsedEnv = EnvSchema.safeParse($env);
 
     try {
@@ -68,7 +73,6 @@ export const createEnv = () => {
         }
     } catch (err: any) {
         console.error(err.message);
-        return;
-        // process.exit(1);
+        process.exit(1);
     }
 };

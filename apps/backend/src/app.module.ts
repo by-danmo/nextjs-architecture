@@ -5,7 +5,7 @@ import { HelloAppModule } from './hello-app/hello-app.module';
 @Module({
   imports: [
     TRPCModule.forRoot({
-      autoSchemaFile: '../../packages/trpc/server',
+      autoSchemaFile: '../../packages/trpc/src/server',
     }),
     HelloAppModule,
   ],
