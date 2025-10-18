@@ -2,7 +2,14 @@
 > web@1.0.0 dev /home/danmo/Dev/SideQuest/nextjs-architecture-blank/apps/web
 > next dev --turbopack
 
-[32m✔[0m [33mConsole Ninja[0m extension is connected to [33mNext.js[0m, see [36mhttps://tinyurl.com/2vt8jxzw[0m
+
+[31m✘[39m node v22.19.0, and next.js v15.5.5 are [31mnot yet supported[39m in the Community edition of [33mConsole Ninja[39m.
+We are working hard on it for you [36mhttps://tinyurl.com/3h9mtwra[39m.
+
+Estimated release dates:
+  - Community users: [36maround 13th December, 2025 [1m(subject to team availability)[22m[39m
+[33m  - PRO users[39m:       [1m[32mpriority access is available now[39m[22m
+
  [33m[1m⚠[22m[39m Warning: Next.js inferred your workspace root, but it may not be correct.
  We detected multiple lockfiles and selected the directory of /home/danmo/package-lock.json as the root directory.
  To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
@@ -10,193 +17,22 @@
  Detected additional lockfiles: 
    * /home/danmo/Dev/SideQuest/nextjs-architecture-blank/pnpm-lock.yaml
 
+
+[31m✘[39m node v22.19.0, and next.js v15.5.5 are [31mnot yet supported[39m in the Community edition of [33mConsole Ninja[39m.
+We are working hard on it for you [36mhttps://tinyurl.com/3h9mtwra[39m.
+
+Estimated release dates:
+  - Community users: [36maround 13th December, 2025 [1m(subject to team availability)[22m[39m
+[33m  - PRO users[39m:       [1m[32mpriority access is available now[39m[22m
+
+ [33m[1m⚠[22m[39m Port 3000 is in use by an unknown process, using available port 3001 instead.
    [1m[38;2;173;127;168m▲ Next.js 15.5.5[39m[22m (Turbopack)
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.68.213:3000
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.1.8:3001
    - Environments: .env.local
 
  [32m[1m✓[22m[39m Starting...
- [32m[1m✓[22m[39m Compiled middleware in 88ms
- [32m[1m✓[22m[39m Ready in 770ms
- [37m[1m○[22m[39m Compiling / ...
- [32m[1m✓[22m[39m Compiled / in 1900ms
- GET / [32m200[39m in 2206ms
- [32m[1m✓[22m[39m Compiled /favicon.ico in 246ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 259ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 384ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 36ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 48ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 49ms
- GET / [32m200[39m in 75ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 47ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 242ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 39ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 57ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 63ms
- [37m[1m [22m[39m Reload env: .env.local
- GET / [32m200[39m in 69ms
- GET / [32m200[39m in 116ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 44ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 258ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 39ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 83ms
- GET /trpc/helloApp.getHelloApp?batch=1&input=%7B%220%22%3A%7B%22name%22%3A%22Ariel%22%7D%7D [33m404[39m in 53ms
- [33m[1m⚠[22m[39m Found a change in next.config.ts. Restarting the server to apply the changes...
-   [1m[38;2;173;127;168m▲ Next.js 15.5.5[39m[22m (Turbopack)
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.68.213:3000
-   - Environments: .env.local
-
- [32m[1m✓[22m[39m Starting...
- [32m[1m✓[22m[39m Compiled middleware in 164ms
- [32m[1m✓[22m[39m Ready in 844ms
- [37m[1m○[22m[39m Compiling / ...
- [32m[1m✓[22m[39m Compiled / in 1938ms
- GET / [32m200[39m in 2243ms
-(node:1638746) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+ [32m[1m✓[22m[39m Compiled middleware in 93ms
+ [32m[1m✓[22m[39m Ready in 781ms
+(node:3693009) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
- [32m[1m✓[22m[39m Compiled /favicon.ico in 121ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 383ms
- GET / [32m200[39m in 78ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 240ms
- GET / [32m200[39m in 68ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 234ms
- [32m[1m✓[22m[39m Compiled in 86ms
- GET / [32m200[39m in 222ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 236ms
- GET / [32m200[39m in 75ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 234ms
- GET / [32m200[39m in 74ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 238ms
- GET / [32m200[39m in 68ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 235ms
- GET / [32m200[39m in 58ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 233ms
- [32m[1m✓[22m[39m Compiled in 125ms
- GET / [32m200[39m in 229ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 237ms
- [32m[1m✓[22m[39m Compiled in 139ms
- GET / [32m200[39m in 232ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 231ms
- GET / [32m200[39m in 63ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 231ms
- GET / [32m200[39m in 87ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 233ms
- [32m[1m✓[22m[39m Compiled in 118ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 238ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 223ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 59ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 256ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 225ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 67ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 222ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 78ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 229ms
- [32m[1m✓[22m[39m Compiled in 131ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 243ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 229ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 97ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 229ms
- [32m[1m✓[22m[39m Compiled in 149ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 253ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 224ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 72ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 218ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 58ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 227ms
- [32m[1m✓[22m[39m Compiled in 108ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 225ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 219ms
- [32m[1m✓[22m[39m Compiled in 138ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 233ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 225ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 56ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 224ms
- [32m[1m✓[22m[39m Compiled in 126ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 228ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 226ms
- [32m[1m✓[22m[39m Compiled in 132ms
- [32m[1m✓[22m[39m Compiled in 127ms
- [32m[1m✓[22m[39m Compiled in 132ms
- [32m[1m✓[22m[39m Compiled in 134ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 232ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 226ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 75ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 225ms
- [32m[1m✓[22m[39m Compiled in 119ms
- [32m[1m✓[22m[39m Compiled in 122ms
- [32m[1m✓[22m[39m Compiled in 131ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 226ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 225ms
- [32m[1m✓[22m[39m Compiled in 124ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 225ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 226ms
- [32m[1m✓[22m[39m Compiled in 144ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 221ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 232ms
- [32m[1m✓[22m[39m Compiled in 139ms
- [32m[1m✓[22m[39m Compiled in 114ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 219ms
-
-[31m✘[39m node v22.19.0, and next.js v15.5.5 are [31mnot yet supported[39m in the Community edition of [33mConsole Ninja[39m.
-We are working hard on it for you [36mhttps://tinyurl.com/3h9mtwra[39m.
-
-Estimated release dates:
-  - Community users: [36maround 13th December, 2025 [1m(subject to team availability)[22m[39m
-[33m  - PRO users[39m:       [1m[32mpriority access is available now[39m[22m
-
-
-[31m✘[39m node v22.19.0, and next.js v15.5.5 are [31mnot yet supported[39m in the Community edition of [33mConsole Ninja[39m.
-We are working hard on it for you [36mhttps://tinyurl.com/3h9mtwra[39m.
-
-Estimated release dates:
-  - Community users: [36maround 13th December, 2025 [1m(subject to team availability)[22m[39m
-[33m  - PRO users[39m:       [1m[32mpriority access is available now[39m[22m
-
- [32m[1m✓[22m[39m Compiled in 114ms
- [32m[1m✓[22m[39m Compiled / in 15ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 223ms
- [32m[1m✓[22m[39m Compiled in 133ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 215ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 224ms
- [32m[1m✓[22m[39m Compiled in 125ms
- [31m[1m⨯[22m[39m ReferenceError: szd is not defined
-    at __TURBOPACK__module__evaluation__ (src/app/(landing)/page.tsx:17:1)
-[0m [90m 15 |[39m     )[33m;[39m
- [90m 16 |[39m }
-[31m[1m>[22m[39m[90m 17 |[39m szd[33m;[39m
- [90m    |[39m [31m[1m^[22m[39m
- [90m 18 |[39m[0m {
-  digest: [32m'873222472'[39m
-}
- GET / [31m500[39m in 406ms
- GET /favicon.ico [32m200[39m in 231ms
- [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
- [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload when ./Dev/SideQuest/nextjs-architecture-blank/apps/web/src/app/(landing)/page.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
- [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
- [32m[1m✓[22m[39m Compiled in 117ms
-{ data: [90mundefined[39m }
- GET / [32m200[39m in 248ms
- GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 247ms

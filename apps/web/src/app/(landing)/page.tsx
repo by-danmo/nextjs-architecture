@@ -3,7 +3,7 @@ import { Hero } from '@/components/sections';
 import { useTRPC } from '@/hooks/use-trpc';
 
 export default function Home() {
-    const { data } = useTRPC('hello', 'getHelloApp').useQuery({
+    const { data } = useTRPC('helloMyApp', 'getHelloApp').useQuery({
         name: 'Coder'
     });
 

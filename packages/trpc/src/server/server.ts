@@ -5,15 +5,11 @@ const t = initTRPC.create();
 const publicProcedure = t.procedure;
 
 const appRouter = t.router({
-  hello: t.router({
-    getHelloApp: publicProcedure
-      .input(
-        z.object({
-          name: z.string().min(2).max(100),
-        })
-      )
-      .output(z.string())
-      .query(async () => "PLACEHOLDER_DO_NOT_REMOVE" as any),
-  }),
+  helloMyApp: t.router({
+    getHelloApp: publicProcedure.input(z.object({
+      name: z.string().min(2).max(100),
+    })).output(z.string()).query(async () => "PLACEHOLDER_DO_NOT_REMOVE" as any)
+  })
 });
 export type AppRouter = typeof appRouter;
+
