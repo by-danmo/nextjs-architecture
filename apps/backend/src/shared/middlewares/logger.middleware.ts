@@ -7,14 +7,20 @@ export class LoggerMiddleware implements TRPCMiddleware {
   private readonly logger = new Logger(LoggerMiddleware.name);
   private readonly measureDuration = measureDuration();
 
-  async use({ next, path, type }: MiddlewareOptions) {
+  async use({ next, path, type, ctx }: MiddlewareOptions) {
     this.measureDuration.startMeasurement();
     const result = await next();
+
+    const { req, res } = ctx as any;
 
     const meta = {
       path,
       type,
       duration: this.measureDuration.endMeasurement(),
+      method: req?.method,
+      stautsCode: res?.statusCode,
+      ip: req?.ip,
+      headers: req?.headers,
     };
 
     result.ok
