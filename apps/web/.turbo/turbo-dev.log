@@ -32,7 +32,7 @@ Estimated release dates:
    - Environments: .env.local
 
  [32m[1m✓[22m[39m Starting...
- [32m[1m✓[22m[39m Compiled middleware in 93ms
- [32m[1m✓[22m[39m Ready in 781ms
-(node:3693009) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+ [32m[1m✓[22m[39m Compiled middleware in 94ms
+ [32m[1m✓[22m[39m Ready in 782ms
+(node:143874) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
 (Use `node --trace-deprecation ...` to show where the warning was created)
