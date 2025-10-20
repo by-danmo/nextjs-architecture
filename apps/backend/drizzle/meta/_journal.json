@@ -15,6 +15,13 @@
       "when": 1760977582565,
       "tag": "0001_left_rumiko_fujikawa",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1760981403642,
+      "tag": "0002_short_plazm",
+      "breakpoints": true
     }
   ]
 }

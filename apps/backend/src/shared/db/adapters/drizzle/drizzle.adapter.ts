@@ -1,8 +1,10 @@
-export const DB_CONNECTION = 'DB_CONNECTION';
 import { ConfigService } from '@nestjs/config';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
-import * as userSchema from '../../../modules/users/schema/user.schema';
+import * as userSchema from '../../../../modules/users/schema/user.schema';
+
+export const DB_CONNECTION = 'DB_CONNECTION';
+
 export const drizzleAdapter = {
   provide: DB_CONNECTION,
   useFactory: (configService: ConfigService) => {

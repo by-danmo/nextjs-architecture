@@ -6,7 +6,7 @@ import { TrpcModule } from './shared/config/trpc/trpc.module';
 import { DbModule } from './shared/db/db.module';
 
 @Module({
-  imports: [ConfigsModule, TrpcModule, HelloAppModule, DbModule, UsersModule],
+  imports: [ConfigsModule, TrpcModule, HelloAppModule, UsersModule, DbModule],
   controllers: [],
   providers: [],
 })

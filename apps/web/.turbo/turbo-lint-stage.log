@@ -3,4 +3,4 @@
 > web@1.0.0 lint-stage /home/danmo/Dev/SideQuest/nextjs-architecture-blank/apps/web
 > pnpm lint-staged
 
-[34m→[39m No staged files match any configured task.
+[34m→[39m No staged files found.

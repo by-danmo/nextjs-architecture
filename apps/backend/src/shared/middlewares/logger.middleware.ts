@@ -20,7 +20,6 @@ export class LoggerMiddleware implements TRPCMiddleware {
       method: req?.method,
       stautsCode: res?.statusCode,
       ip: req?.ip,
-      headers: req?.headers,
     };
 
     result.ok
