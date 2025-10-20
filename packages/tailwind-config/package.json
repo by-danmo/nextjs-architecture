@@ -1,11 +1,10 @@
 {
-  "name": "@prettyfull/tailwind-config",
+  "name": "@mono/tailwind-config",
   "version": "0.0.0",
   "type": "module",
   "private": true,
   "exports": {
     ".": "./shared.styles.css",
-    "./styles": "./shared.styles.css",
     "./postcss": "./postcss.config.mjs"
   },
   "devDependencies": {

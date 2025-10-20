@@ -25,12 +25,4 @@ Estimated release dates:
   - Community users: [36maround 13th December, 2025 [1m(subject to team availability)[22m[39m
 [33m  - PRO users[39m:       [1m[32mpriority access is available now[39m[22m
 
-   [1m[38;2;173;127;168m▲ Next.js 15.5.5[39m[22m (Turbopack)
-   - Local:        http://localhost:3000
-   - Network:      http://192.168.68.213:3000
-   - Environments: .env.local
-
- [32m[1m✓[22m[39m Starting...
- [32m[1m✓[22m[39m Compiled middleware in 101ms
- [32m[1m✓[22m[39m Ready in 1048ms
 [?25h

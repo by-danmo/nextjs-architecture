@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import '@mono/tailwind-config';
 
 :root {
     --foreground-rgb: 0, 0, 0;

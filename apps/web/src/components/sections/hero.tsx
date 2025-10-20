@@ -169,7 +169,7 @@ const Hero = ({
                                 <motion.span
                                     variants={textVariants}
                                     custom={{ x: item.x, y: item.y }}
-                                    className="inline-block"
+                                    className="inline-block bg-error"
                                 >
                                     {item.text}
                                 </motion.span>{' '}
