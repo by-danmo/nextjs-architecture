@@ -1,7 +1,11 @@
-import React = require("react");
+import * as React from "react";
 
-const Button = () => {
-  return <div>Button</div>;
+export const Button = ({
+  children,
+  className,
+}: {
+  children: any;
+  className: string;
+}) => {
+  return <div className={`ui:text-amber-300 ${className}`}>{children}</div>;
 };
-
-export default Button;

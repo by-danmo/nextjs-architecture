@@ -6,6 +6,7 @@ import type { ReactNode } from 'react';
 
 import { siteConfig } from '@/config';
 import { Provider } from '@/providers/root.provider';
+import '@mono/ui/styles.css';
 import './globals.css';
 
 export const metadata: Metadata = siteConfig.meta;

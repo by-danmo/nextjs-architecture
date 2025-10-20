@@ -1,19 +1,14 @@
 {
-  "extends": "@mono/typescript-config/nextjs.json",
   "compilerOptions": {
     "jsx": "react",
     "outDir": "dist",
     "declaration": true, // This is crucial! It creates the .d.ts files.
     "declarationMap": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@mono/utils": ["../../packages/utils/index.ts"],
-      "@mono/tailwind-config": [
-        "../../packages/tailwind-config/shared.styles.css"
-      ]
+      "@/*": ["./src/*"]
     }
   },
 
-  "include": ["src", "src/layouts", "src/styles.css"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "build"]
 }

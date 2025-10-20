@@ -16,6 +16,7 @@
     "dependencies": {
         "@mono/trpc": "workspace:*",
         "@mono/tailwind-config": "workspace:*",
+        "@mono/ui": "workspace:*",
         "@eslint/js": "^9.37.0",
         "@fontsource-variable/urbanist": "^5.1.0",
         "@fontsource/dm-serif-display": "^5.2.0",

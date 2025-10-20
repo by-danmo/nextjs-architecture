@@ -25,4 +25,62 @@ Estimated release dates:
   - Community users: [36maround 13th December, 2025 [1m(subject to team availability)[22m[39m
 [33m  - PRO users[39m:       [1m[32mpriority access is available now[39m[22m
 
+   [1m[38;2;173;127;168m▲ Next.js 15.5.5[39m[22m (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.68.213:3000
+   - Environments: .env.local
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Compiled middleware in 91ms
+ [32m[1m✓[22m[39m Ready in 818ms
+ [37m[1m○[22m[39m Compiling / ...
+ [32m[1m✓[22m[39m Compiled / in 1894ms
+{ data: [90mundefined[39m }
+ GET / [32m200[39m in 2208ms
+(node:357242) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ [32m[1m✓[22m[39m Compiled /favicon.ico in 142ms
+ GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 394ms
+{ data: [90mundefined[39m }
+ GET / [32m200[39m in 110ms
+ GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 237ms
+ [32m[1m✓[22m[39m Compiled in 9ms
+ [32m[1m✓[22m[39m Compiled in 133ms
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+ [32m[1m✓[22m[39m Compiled in 111ms
+{ data: [90mundefined[39m }
+ [31m[1m⨯[22m[39m ReferenceError: Bonjour is not defined
+    at Hero (src/components/sections/hero.tsx:149:31)
+[0m [90m 147 |[39m     [36mreturn[39m (
+ [90m 148 |[39m         [33m<[39m[33msection[39m className[33m=[39m[32m"bg-tweak hero-bg h-screen items-center"[39m[33m>[39m
+[31m[1m>[22m[39m[90m 149 |[39m             [33m<[39m[33mButton[39m children[33m=[39m{[33mBonjour[39m} className[33m=[39m[32m"Life"[39m[33m>[39m
+ [90m     |[39m                               [31m[1m^[22m[39m
+ [90m 150 |[39m                 [33mBonjour[39m
+ [90m 151 |[39m             [33m<[39m[33m/[39m[33mButton[39m[33m>[39m
+ [90m 152 |[39m             {[90m/* Header */[39m}[0m {
+  digest: [32m'3690815371'[39m
+}
+ GET / [31m500[39m in 149ms
+ GET /favicon.ico [32m200[39m in 221ms
+ [33m[1m⚠[22m[39m Fast Refresh had to perform a full reload due to a runtime error.
+ [32m[1m✓[22m[39m Compiled in 106ms
+{ data: [90mundefined[39m }
+ GET / [32m200[39m in 135ms
+ GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 242ms
+ [32m[1m✓[22m[39m Compiled in 133ms
+ [32m[1m✓[22m[39m Compiled in 133ms
+ [32m[1m✓[22m[39m Compiled in 4ms
+ [32m[1m✓[22m[39m Compiled / in 17ms
+ GET / [32m200[39m in 73ms
+ [32m[1m✓[22m[39m Compiled / in 25ms
+{ data: [90mundefined[39m }
+ GET / [32m200[39m in 155ms
+ GET / [32m200[39m in 150ms
+ GET /favicon.ico?favicon.0b3bf435.ico [32m200[39m in 221ms
+ [32m[1m✓[22m[39m Compiled in 5ms
+ [32m[1m✓[22m[39m Compiled in 112ms
+ [32m[1m✓[22m[39m Compiled in 109ms
+ [32m[1m✓[22m[39m Compiled in 117ms
+ [32m[1m✓[22m[39m Compiled / in 23ms
+ GET / [32m200[39m in 71ms
 [?25h

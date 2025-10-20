@@ -2,6 +2,7 @@
 
 import { MagneticButton } from '@/components/ui/magnetic-button';
 import { cn } from '@/lib/utils/generics';
+import { Button } from '@mono/ui/button';
 import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';
 import Image from 'next/image';
@@ -145,6 +146,7 @@ const Hero = ({
 
     return (
         <section className="bg-tweak hero-bg h-screen items-center">
+            <Button>Bonjour</Button>
             {/* Header */}
             <header>
                 <p className="absolute left-32 top-5 tracking-wider text-white">
