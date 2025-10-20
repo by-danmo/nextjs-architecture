@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 export const DB_CONNECTION = 'DB_CONNECTION';
 import { ConfigService } from '@nestjs/config';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
-
+import * as userSchema from '../../../modules/users/schema/user.schema';
 export const drizzleAdapter = {
   provide: DB_CONNECTION,
   useFactory: (configService: ConfigService) => {
@@ -12,7 +11,9 @@ export const drizzleAdapter = {
     });
 
     return drizzle(pool, {
-      schema: {},
+      schema: {
+        ...userSchema,
+      },
     });
   },
   inject: [ConfigService],

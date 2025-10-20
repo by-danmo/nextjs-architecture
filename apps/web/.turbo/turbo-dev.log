@@ -34,3 +34,9 @@ Estimated release dates:
  [32m[1m✓[22m[39m Starting...
  [32m[1m✓[22m[39m Compiled middleware in 90ms
  [32m[1m✓[22m[39m Ready in 791ms
+(node:2298022) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ [37m[1m○[22m[39m Compiling /favicon.ico ...
+ [32m[1m✓[22m[39m Compiled /favicon.ico in 785ms
+ GET /favicon.ico [32m200[39m in 1087ms
+[?25h
