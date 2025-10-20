@@ -1,0 +1,14 @@
+{
+  "name": "@prettyfull/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "tailwind.config.ts",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1", 
+    "typescript": "5.8.2" 
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
