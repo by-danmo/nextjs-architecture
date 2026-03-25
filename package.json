@@ -1,20 +1,19 @@
 {
-  "name": "mono",
+  "name": "multi-app",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "install:fonts": "pnpm install @fontsource-variable/manrope @fontsource/bebas-neue --filter @prettyfull/ui  --filter docs --filter web --filter ui  --filter tailwind-config",
     "dev": "turbo run dev",
-    "start:prod": "turbo run start ",
+    "start:prod": "turbo run start",
     "lint": "turbo run lint",
-    "commit": "turbo run lint-stage && git add -A && pnpm git-cz ",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "commit": "turbo run lint-stage && git add -A && npm run git-cz",
+    "format": "turbo run format",
     "check-types": "turbo run check-types",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "prettier": "^3.6.2",
     "turbo": "^2.5.8",
     "typescript": "5.8.3",
     "commitizen": "^4.3.0",
