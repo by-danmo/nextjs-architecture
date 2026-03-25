@@ -1,0 +1,7 @@
+/* prefix tailwind */
+
+/* Import shared styles from tailwind-config package */
+@import "@multi-app/tailwind-config/shared.styles.css";
+
+/* Component-level styles for the design system package */
+@import "tailwindcss";
