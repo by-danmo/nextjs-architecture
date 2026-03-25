@@ -1,0 +1,6 @@
+{
+    "{src,e2e,.storybook}/**/*.(ts|tsx|js)": [
+        "eslint --fix",
+        "npx prettier . --write"
+    ]
+}

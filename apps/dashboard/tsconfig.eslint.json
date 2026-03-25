@@ -1,0 +1,11 @@
+{
+    "extends": "./tsconfig.json",
+    "include": [
+        "src/**/*",
+        "e2e/**/*",
+        "playwright.config.ts",
+        ".storybook/**/*",
+        "next.config.ts"
+    ],
+    "exclude": ["node_modules", "dist"]
+}
