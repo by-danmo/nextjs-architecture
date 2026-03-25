@@ -5,7 +5,7 @@
 
 import { Container } from '@/components/layout';
 import { Button } from '@/components/ui';
-import { useExample } from '@/context';
+import { useExample } from '@/shared/context';
 
 export interface ExamplePageProps {
     title?: string;

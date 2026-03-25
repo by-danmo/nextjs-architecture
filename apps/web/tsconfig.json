@@ -18,18 +18,16 @@
             }
         ],
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@multi-app/shared/*": ["../../packages/shared/src/*"],
+            "@multi-app/lib/*": ["../../packages/lib/src/*"]
         },
         "target": "ES2017"
     },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        ".next/types/**/*.ts",
-        "eslint.config.js",
-        "src/config/env.config.ts",
-        "src/shared/utils/format-env-error.ts"
-    ],
-    "exclude": ["node_modules"]
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "exclude": ["node_modules"],
+    "references": [
+        { "path": "../../packages/shared" },
+        { "path": "../../packages/lib" }
+    ]
 }
