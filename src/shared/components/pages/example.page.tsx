@@ -3,8 +3,8 @@
  * This demonstrates how to create page-level components
  */
 
-import { Container } from '@/components/layout';
-import { Button } from '@/components/ui';
+import { Container } from '@/shared/components/layout';
+import { Button } from '@/shared/components/ui';
 import { useExample } from '@/shared/context';
 
 export interface ExamplePageProps {

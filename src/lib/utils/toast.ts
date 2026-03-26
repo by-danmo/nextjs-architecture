@@ -10,20 +10,10 @@ type ToastType = 'success' | 'error' | 'info' | 'warning' | 'loading';
 
 interface ToastOptions extends ExternalToast {
     duration?: number;
-    position?:
-        | 'top-left'
-        | 'top-center'
-        | 'top-right'
-        | 'bottom-left'
-        | 'bottom-center'
-        | 'bottom-right';
+    position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
 }
 
-const $toastify = (
-    type: ToastType,
-    message?: string[] | string,
-    options: ToastOptions = { duration: 3000 }
-) => {
+const $toastify = (type: ToastType, message?: string[] | string, options: ToastOptions = { duration: 3000 }) => {
     let messages = '';
 
     if (Array.isArray(message)) {
@@ -55,23 +45,3 @@ export const toastWarning = (message: string, options?: ToastOptions) => {
 export const toastLoading = (message: string, options?: ToastOptions) => {
     $toastify('loading', message, options);
 };
-
-// Promise-based toast
-// export const toastPromise = async <T>(
-//     promise: Promise<T>,
-//     {
-//         loading = 'Chargement...',
-//         success = 'Succès !',
-//         error = 'Erreur !'
-//     }: {
-//         loading?: string;
-//         success?: string | ((data: T) => string);
-//         error?: string | ((error: any) => string);
-//     }
-// ): Promise<T> => {
-//     return  toast.promise(promise, {
-//         loading,
-//         success,
-//         error
-//     });
-// };

@@ -1,6 +1,6 @@
 'use client';
 
-import { MagneticButton } from '@/components/ui/magnetic-button';
+import { MagneticButton } from '@/shared/components/ui/magnetic-button';
 import { cn } from '@/lib/utils/generics';
 import type { Variants } from 'motion/react';
 import { motion, useAnimation } from 'motion/react';

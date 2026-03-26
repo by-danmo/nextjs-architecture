@@ -1,5 +1,6 @@
-import Flex from '@/components/layout/helpers/flex';
-import { CartIcon, HeartIcon, Logo, SearchIcon } from '@/components/ui';
+import { Search, Heart, ShoppingCart } from 'lucide-react';
+import Flex from '@/shared/components/layout/helpers/flex';
+import { Logo } from '@/shared/components/ui';
 import { menuData } from '@/data/menu.data';
 import Link from 'next/link';
 
@@ -49,7 +50,7 @@ const Header = () => {
                         className="text-[1.6rem] hover:opacity-80 transition-opacity"
                         aria-label="Search"
                     >
-                        <SearchIcon />
+                        <Search />
                     </button>
 
                     <button
@@ -57,7 +58,7 @@ const Header = () => {
                         className="text-[1.6rem] hover:opacity-80 transition-opacity"
                         aria-label="Wishlist"
                     >
-                        <HeartIcon />
+                        <Heart />
                     </button>
 
                     <button
@@ -65,9 +66,9 @@ const Header = () => {
                         className="relative text-[1.6rem] hover:opacity-80 transition-opacity"
                         aria-label="Shopping cart"
                     >
-                        <CartIcon />
+                        <ShoppingCart />
                         <Flex
-                            as="span"
+                            as="div"
                             settings={{
                                 align: 'center',
                                 justify: 'center'

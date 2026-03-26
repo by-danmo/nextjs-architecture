@@ -21,7 +21,7 @@
  */
 
 import type { HTMLAttributes, PropsWithChildren } from 'react';
-import { cn } from '../../../lib/utils';
+import { cn } from '@/lib/utils/generics';
 
 export interface FlexRowProps extends HTMLAttributes<HTMLDivElement> {
     as?:

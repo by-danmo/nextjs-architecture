@@ -25,10 +25,7 @@ class ApiClient {
         };
     }
 
-    private buildUrl(
-        endpoint: string,
-        params?: RequestOptions['params']
-    ): string {
+    private buildUrl(endpoint: string, params?: RequestOptions['params']): string {
         const url = new URL(endpoint, this.baseURL);
 
         if (params) {
@@ -42,9 +39,7 @@ class ApiClient {
         return url.toString();
     }
 
-    private async getHeaders(
-        customHeaders?: Record<string, string>
-    ): Promise<Record<string, string>> {
+    private async getHeaders(customHeaders?: Record<string, string>): Promise<Record<string, string>> {
         const headers = { ...this.defaultHeaders, ...customHeaders };
 
         // Get cookies for server-side requests
@@ -68,17 +63,14 @@ class ApiClient {
         return headers;
     }
 
-    private async handleResponse<T>(
-        response: Response
-    ): Promise<ApiResponse<T>> {
+    private async handleResponse<T>(response: Response): Promise<ApiResponse<T>> {
         try {
             const data = await response.json();
 
             if (!response.ok) {
                 return {
                     success: false,
-                    error:
-                        data.message || data.error || `HTTP ${response.status}`,
+                    error: data.message || data.error || `HTTP ${response.status}`,
                     data: undefined
                 };
             }
@@ -91,27 +83,14 @@ class ApiClient {
         } catch (error) {
             return {
                 success: false,
-                error:
-                    error instanceof Error
-                        ? error.message
-                        : 'Failed to parse response',
+                error: error instanceof Error ? error.message : 'Failed to parse response',
                 data: undefined
             };
         }
     }
 
-    async request<T = any>(
-        endpoint: string,
-        options: RequestOptions = {}
-    ): Promise<ApiResponse<T>> {
-        const {
-            method = 'GET',
-            headers: customHeaders,
-            body,
-            params,
-            cache,
-            timeout = 10000
-        } = options;
+    async request<T = any>(endpoint: string, options: RequestOptions = {}): Promise<ApiResponse<T>> {
+        const { method = 'GET', headers: customHeaders, body, params, cache, timeout = 10000 } = options;
 
         try {
             const url = this.buildUrl(endpoint, params);
@@ -147,10 +126,7 @@ class ApiClient {
         }
     }
 
-    async get<T = any>(
-        endpoint: string,
-        options: Omit<RequestOptions, 'method' | 'body'> = {}
-    ): Promise<ApiResponse<T>> {
+    async get<T = any>(endpoint: string, options: Omit<RequestOptions, 'method' | 'body'> = {}): Promise<ApiResponse<T>> {
         return this.request<T>(endpoint, { ...options, method: 'GET' });
     }
 
@@ -178,18 +154,13 @@ class ApiClient {
         return this.request<T>(endpoint, { ...options, method: 'PATCH', body });
     }
 
-    async delete<T = any>(
-        endpoint: string,
-        options: Omit<RequestOptions, 'method' | 'body'> = {}
-    ): Promise<ApiResponse<T>> {
+    async delete<T = any>(endpoint: string, options: Omit<RequestOptions, 'method' | 'body'> = {}): Promise<ApiResponse<T>> {
         return this.request<T>(endpoint, { ...options, method: 'DELETE' });
     }
 }
 
 // Create and export the default API client instance
-export const apiClient = new ApiClient(
-    process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'
-);
+export const apiClient = new ApiClient(process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api');
 
 // Export the class for creating custom instances
 export { ApiClient };

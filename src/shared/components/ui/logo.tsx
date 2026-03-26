@@ -1,45 +1,76 @@
-import { siteConfig } from '@/config';
-import Link from 'next/link';
-import type { HTMLAttributes } from 'react';
+import Image from "next/image";
+import Link from "next/link";
+import type { HTMLAttributes } from "react";
 
 interface LogoProps extends HTMLAttributes<HTMLElement> {
-    width?: number;
-    height?: number;
-    variant?: 'text' | 'image';
-    href?: string;
+  width?: number;
+  height?: number;
+  variant?: "text" | "image";
+  href?: string;
+  textColor?: "white" | "red" | "black";
+  dotColor?: "red" | "yellow";
+  size?: "md" | "lg" | "xxl";
+  siteName?: string;
+  logoUrl?: string;
 }
 
-const Logo = ({
-    width,
-    height,
-    variant = 'text',
-    href = '/',
-    className,
-    ...props
-}: LogoProps) => {
-    const logoContent =
-        variant === 'image' ? (
-            siteConfig.logo?.default ? (
-                <img
-                    src={siteConfig.logo.default}
-                    alt={siteConfig.meta.title}
-                    width={width}
-                    height={height}
-                    className={className}
-                />
-            ) : null
-        ) : (
-            <h2 style={{ width, height }} className={className} {...props}>
-                <Link
-                    href={href}
-                    className="text-[2.4rem] sm:text-[3.5rem] font-semibold hover:opacity-80 transition-opacity"
-                >
-                    {siteConfig.meta.title}
-                </Link>
-            </h2>
-        );
+const logoVariant = {
+  text: {
+    white: "text-white",
+    red: "text-primary",
+    black: "text-black",
+  },
+  dot: {
+    red: "text-primary",
+    yellow: "text-secondary",
+  },
+};
 
-    return logoContent;
+const logoSizes = {
+  md: "text-[4rem]",
+  lg: "text-[8rem]",
+  xxl: "text-[30rem]",
+};
+
+const Logo = ({
+  width,
+  height,
+  variant = "text",
+  href = "/",
+  textColor = "black",
+  dotColor = "red",
+  className,
+  size = "md",
+  siteName = "SheSold",
+  logoUrl,
+  ...props
+}: LogoProps) => {
+  const textClass = logoVariant.text[textColor];
+  const dotClass = logoVariant.dot[dotColor];
+  const selectedSize = logoSizes[size];
+
+  const logoContent =
+    variant === "image" ? (
+      <Image
+        src={logoUrl ?? ""}
+        alt={siteName}
+        width={width}
+        height={height}
+        className={className}
+      />
+    ) : (
+      <h2 style={{ width, height }} className={className} {...props}>
+        <Link
+          href={href}
+          className={`${selectedSize} whitespace-nowrap font-medium hover:opacity-80 transition-opacity ${textClass}`}
+        >
+          {siteName}
+          <span className={dotClass}>.</span>
+        </Link>
+      </h2>
+    );
+
+  return logoContent;
 };
 
 export { Logo };

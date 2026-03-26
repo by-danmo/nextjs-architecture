@@ -1,49 +1,128 @@
-import { cn } from '@/lib/utils/generics';
-import type { InputHTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+"use client";
+import { cn } from "@/lib/utils/generics";
+import { cva, type VariantProps } from "class-variance-authority";
+import { useState, type InputHTMLAttributes } from "react";
+import { InputError } from "../feedback/input-error";
+import { EyeCloseIcon, EyeOpenIcon } from "../icons/eyes.icon";
+import { ShouldShow } from "../layout/helpers/should-show";
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    error?: string;
-    label?: string;
-}
-
-const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ className, type, error, label, id, ...props }, ref) => {
-        const inputId =
-            id || `input-${Math.random().toString(36).substr(2, 9)}`;
-
-        return (
-            <div className="space-y-2">
-                {label && (
-                    <label
-                        htmlFor={inputId}
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                        {label}
-                    </label>
-                )}
-                <input
-                    type={type}
-                    id={inputId}
-                    className={cn(
-                        'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-                        error &&
-                            'border-destructive focus-visible:ring-destructive',
-                        className
-                    )}
-                    ref={ref}
-                    {...props}
-                />
-                {error && (
-                    <p className="text-sm text-destructive" role="alert">
-                        {error}
-                    </p>
-                )}
-            </div>
-        );
-    }
+const inputVariants = cva(
+  [
+    "w-full",
+    "outline-none focus-visible:ring-1 ",
+    "disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none",
+  ],
+  {
+    variants: {
+      variant: {
+        default: "bg-gray-50 border border-gray-200 rounded-full w-full",
+        outline: "border border-gray-300 bg-transparent",
+        filled: "bg-gray-100",
+        auth: "py-[1.8rem] border rounded-2xl border-auth-input-stroke",
+      },
+      sizes: {
+        default: "pl-[2.4rem] py-[1.8rem]",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      sizes: "default",
+    },
+  },
 );
 
-Input.displayName = 'Input';
+export interface InputProps
+  extends InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof inputVariants> {
+  label?: string;
+  error?: string;
+}
 
-export { Input };
+export const Input = ({
+  className,
+  label,
+  variant,
+  error,
+  ...props
+}: InputProps) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const isPassword = props.type === "password";
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const inputType = new Map([
+    [true, showPassword ? "text" : "password"],
+    [false, props.type],
+  ]);
+
+  return (
+    <div className="w-full ">
+      <div className="relative">
+        <ShouldShow when={variant !== "auth" && props.placeholder !== ""}>
+          <label
+            className={cn(
+              "mb-2 block font-medium text-gray-500 transition-all duration-200",
+            )}
+          >
+            {label}
+          </label>
+        </ShouldShow>
+        <input
+          className={cn(inputVariants({ variant }), "peer", className, {
+            "border-destructive focus:ring-destructive": !!error,
+            "cursor-not-allowed": props.disabled,
+          })}
+          // autoComplete="off"
+          placeholder={props.placeholder}
+          {...props}
+          type={inputType.get(isPassword)}
+        />
+        {label && variant === "auth" && (
+          <label
+            className={cn(
+              "mb-2 block text-[1.6rem] font-medium text-gray-500 transition-all duration-200",
+              variant === "auth"
+                ? [
+                    "absolute left-8 top-1/2 -translate-y-1/2 mb-0 font-normal bg-white pointer-events-none",
+                    "peer-focus:-translate-y-[3.7rem] peer-focus:text-[1.2rem]  ",
+                    "peer-[:not(:placeholder-shown)]:-translate-y-[3.7rem] peer-[:not(:placeholder-shown)]:text-[1.2rem] ",
+                  ]
+                : "pointer-events-none",
+              {
+                "text-destructive": !!error,
+              },
+            )}
+          >
+            {label}
+          </label>
+        )}
+
+        {/* Show Icon Password and is Action */}
+
+        <div className=" flex items-center justify-center absolute-y-center right-7">
+          <ShouldShow
+            when={props.type === "password"}
+            show={
+              <span
+                className="cursor-pointer "
+                role="button"
+                onClick={toggleShowPassword}
+              >
+                <ShouldShow
+                  when={showPassword}
+                  show={<EyeOpenIcon />}
+                  elseShow={<EyeCloseIcon />}
+                />
+              </span>
+            }
+          />
+        </div>
+      </div>
+
+      <InputError error={error} />
+    </div>
+  );
+};

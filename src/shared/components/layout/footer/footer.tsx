@@ -1,4 +1,4 @@
-import { Logo } from '@/components/ui';
+import { Logo } from '@/shared/components/ui';
 import { siteConfig } from '@/config';
 
 const Footer = () => {
