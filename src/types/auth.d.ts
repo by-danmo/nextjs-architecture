@@ -5,7 +5,7 @@
 /**
  * Available authentication routes
  */
-type AuthRoutes =
+export type AuthRoutes =
     | 'sign-in'
     | 'sign-out'
     | 'sign-up'
@@ -15,34 +15,9 @@ type AuthRoutes =
     | 'refresh-token';
 
 /**
- * Login API response
- */
-type LoginResponse = {
-    data: {
-        accessToken: string;
-        refreshToken: string;
-        user: User;
-    };
-    message?: string;
-    success: boolean;
-};
-
-/**
- * Refresh token API response
- */
-type RefreshTokenResponse = {
-    data: {
-        accessToken: string;
-        refreshToken: string;
-    };
-    message?: string;
-    success: boolean;
-};
-
-/**
  * User object from JWT token
  */
-type User = {
+export type User = {
     sub: string;
     email: string;
     role: string;
@@ -55,9 +30,34 @@ type User = {
 };
 
 /**
+ * Login API response
+ */
+export type LoginResponse = {
+    data: {
+        accessToken: string;
+        refreshToken: string;
+        user: User;
+    };
+    message?: string;
+    success: boolean;
+};
+
+/**
+ * Refresh token API response
+ */
+export type RefreshTokenResponse = {
+    data: {
+        accessToken: string;
+        refreshToken: string;
+    };
+    message?: string;
+    success: boolean;
+};
+
+/**
  * Token payload for authentication
  */
-type TokenPayload = {
+export type TokenPayload = {
     accessToken: string;
     refreshToken: string;
 };
@@ -65,7 +65,7 @@ type TokenPayload = {
 /**
  * Authentication state
  */
-type AuthState = {
+export type AuthState = {
     user: User | null;
     isAuthenticated: boolean;
     isLoading: boolean;
@@ -75,7 +75,7 @@ type AuthState = {
 /**
  * Session data
  */
-type SessionData = {
+export type SessionData = {
     user: User;
     accessToken: string;
     refreshToken: string;
@@ -85,7 +85,7 @@ type SessionData = {
 /**
  * Sign up request
  */
-type SignUpRequest = {
+export type SignUpRequest = {
     email: string;
     password: string;
     name?: string;
@@ -94,7 +94,7 @@ type SignUpRequest = {
 /**
  * Sign in request
  */
-type SignInRequest = {
+export type SignInRequest = {
     email: string;
     password: string;
 };
@@ -102,7 +102,7 @@ type SignInRequest = {
 /**
  * Reset password request
  */
-type ResetPasswordRequest = {
+export type ResetPasswordRequest = {
     token: string;
     password: string;
 };

@@ -1,6 +1,6 @@
 // Chaque fichier devra concerner une seule ressource à get.
 
-import { api } from '@/lib/http-client';
+import { apiClient } from '@/lib/api/client';
 import { useQuery } from '@tanstack/react-query';
 
 // 1 : Créer le type de la réponse
@@ -29,20 +29,18 @@ interface User {
 }
 
 // 2 : Créer la fonction qui va appeler l'api
-export const getUser = async () => {
-    const user = await api.get<User>(
-        'https://jsonplaceholder.typicode.com/users/1',
-        {},
-        true
+export const getUser = async (): Promise<User | undefined> => {
+    const response = await apiClient.get<User>(
+        'https://jsonplaceholder.typicode.com/users/1'
     );
-    return user;
+    return response.data;
 };
 
 // 3 : Créer le hook qui va appeler la fonction si besoin utiliser les paramètres
 // Notons que toutes les traitement additionnels qui gèrent le cache, la mise à jour des données, la gestion des erreurs, etc. sont dans ce hook
 // Exemple le onSuccess, onError, onSettled, etc.
 export const useGetUser = () =>
-    useQuery<User, Error>({
+    useQuery<User | undefined, Error>({
         queryKey: ['user'],
         queryFn: getUser
     });
