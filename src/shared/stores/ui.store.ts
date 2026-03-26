@@ -5,6 +5,7 @@
 
 import { create } from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
+import { useShallow } from 'zustand/react/shallow';
 
 interface UIState {
     // Sidebar management
@@ -101,25 +102,30 @@ export const useUIStore = create<UIState>()(
     )
 );
 
-// Selectors for optimized re-renders
+/**
+ * PATTERN: useShallow for Object-Returning Selectors
+ * Without useShallow, returning `{ a: s.a, b: s.b }` creates a new
+ * object reference on every store update → component re-renders even
+ * when a and b haven't changed. useShallow does property-level comparison.
+ */
 export const useSidebar = () =>
-    useUIStore((state) => ({
+    useUIStore(useShallow((state) => ({
         isCollapsed: state.isSidebarCollapsed,
         toggle: state.toggleSidebar,
         setCollapsed: state.setSidebarCollapsed
-    }));
+    })));
 export const useModals = () =>
-    useUIStore((state) => ({
+    useUIStore(useShallow((state) => ({
         modals: state.modals,
         openModal: state.openModal,
         closeModal: state.closeModal,
         toggleModal: state.toggleModal,
         closeAllModals: state.closeAllModals
-    }));
+    })));
 export const useNotifications = () =>
-    useUIStore((state) => ({
+    useUIStore(useShallow((state) => ({
         notifications: state.notifications,
         addNotification: state.addNotification,
         removeNotification: state.removeNotification,
         clearNotifications: state.clearNotifications
-    }));
+    })));
