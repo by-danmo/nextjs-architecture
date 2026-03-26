@@ -5,7 +5,7 @@
 /**
  * HTML elements that can be used as polymorphic components
  */
-type As =
+export type As =
     | 'div'
     | 'section'
     | 'main'
@@ -23,9 +23,23 @@ type As =
 /**
  * Basic response wrapper for API calls
  */
-type ApiResponse<T = unknown> = {
+export type ApiResponse<T = unknown> = {
     data: T;
     message?: string;
     success: boolean;
     error?: string;
+};
+
+export type PaginationMeta = {
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+};
+
+export type PaginatedResponse<T = unknown> = {
+    data: T[];
+    meta: PaginationMeta;
+    message?: string;
+    success: boolean;
 };

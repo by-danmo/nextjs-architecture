@@ -1,51 +1,326 @@
 @import 'tailwindcss';
 
-:root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 145, 194, 228;
-    --background-end-rgb: 254, 255, 243;
-    --tertiary-color: #fcfdec;
+/* ============================================================================
+ * 🎨 DESIGN SYSTEM — Tailwind CSS v4 @theme Configuration
+ * ============================================================================
+ *
+ * PATTERN: CSS-First Configuration (Tailwind v4)
+ * -----------------------------------------------
+ * In Tailwind v4, we no longer use `tailwind.config.ts`.
+ * Instead, the @theme directive defines all design tokens directly in CSS.
+ * This makes tokens available as both CSS variables AND Tailwind classes.
+ *
+ * Example: `--color-primary: #000` → use as `bg-primary`, `text-primary`
+ *          or in CSS as `var(--color-primary)`
+ *
+ * WHY THIS MATTERS:
+ * - Single source of truth for your entire design system
+ * - Zero JavaScript overhead (pure CSS)
+ * - Tokens are instantly available everywhere (CSS, Tailwind, JS via getComputedStyle)
+ * ============================================================================ */
+
+@theme {
+    /* -----------------------------------------------------------------------
+     * COLORS — Semantic Naming Convention
+     * -----------------------------------------------------------------------
+     * PATTERN: Semantic Color Tokens
+     * We name colors by their PURPOSE, not their appearance.
+     * `--color-primary` instead of `--color-black`.
+     * This lets you swap themes without renaming classes.
+     * ----------------------------------------------------------------------- */
+
+    /* Core Brand Colors */
+    --color-primary: #0a0a0a;
+    --color-primary-light: #1a1a2e;
+    --color-primary-hover: #16213e;
+
+    --color-secondary: #ffffff;
+    --color-secondary-hover: #f8f8f8;
+
+    --color-tertiary: #fcfdec;
+
+    /* Accent — used for CTAs, highlights, interactive elements */
+    --color-accent: #6366f1;
+    --color-accent-hover: #4f46e5;
+    --color-accent-light: #e0e7ff;
+    --color-accent-muted: #818cf8;
+
+    /* Neutral Scale — for backgrounds, borders, subtle text */
+    --color-neutral-50: #fafafa;
+    --color-neutral-100: #f5f5f5;
+    --color-neutral-200: #e5e5e5;
+    --color-neutral-300: #d4d4d4;
+    --color-neutral-400: #a3a3a3;
+    --color-neutral-500: #737373;
+    --color-neutral-600: #525252;
+    --color-neutral-700: #404040;
+    --color-neutral-800: #262626;
+    --color-neutral-900: #171717;
+
+    /* Surface Colors — layered backgrounds for depth */
+    --color-surface: #ffffff;
+    --color-surface-raised: #fafafa;
+    --color-surface-overlay: rgba(0, 0, 0, 0.5);
+    --color-surface-glass: rgba(255, 255, 255, 0.08);
+
+    /* Feedback Colors — consistent UX communication */
+    --color-success: #22c55e;
+    --color-success-light: #dcfce7;
+    --color-info: #3b82f6;
+    --color-info-light: #dbeafe;
+    --color-warning: #f59e0b;
+    --color-warning-light: #fef3c7;
+    --color-error: #ef4444;
+    --color-error-light: #fee2e2;
+
+    /* Border */
+    --color-border: #e5e5e5;
+    --color-border-hover: #d4d4d4;
+    --color-border-focus: #6366f1;
+
+    /* -----------------------------------------------------------------------
+     * TYPOGRAPHY — Fluid Type Scale with clamp()
+     * -----------------------------------------------------------------------
+     * PATTERN: Fluid Typography
+     * Instead of breakpoint-based font sizes, we use CSS clamp() to create
+     * a smoothly interpolating scale. The formula:
+     *
+     *   clamp(MIN, PREFERRED, MAX)
+     *
+     * Where PREFERRED uses viewport units (vw) for smooth scaling.
+     * This eliminates the need for responsive typography media queries entirely.
+     *
+     * The formula for PREFERRED:
+     *   preferred = min + (max - min) * ((100vw - 320px) / (1440 - 320))
+     *   simplified: we use a vw + rem combination
+     * ----------------------------------------------------------------------- */
+
+    --font-size-display: clamp(3.6rem, 3rem + 1.5vw, 6rem);
+    --font-size-h1: clamp(2.8rem, 2.4rem + 1vw, 4.8rem);
+    --font-size-h2: clamp(2.2rem, 1.9rem + 0.75vw, 3.6rem);
+    --font-size-h3: clamp(1.8rem, 1.6rem + 0.5vw, 2.8rem);
+    --font-size-h4: clamp(1.6rem, 1.45rem + 0.35vw, 2.2rem);
+    --font-size-h5: clamp(1.4rem, 1.3rem + 0.25vw, 1.8rem);
+    --font-size-h6: clamp(1.2rem, 1.15rem + 0.15vw, 1.5rem);
+    --font-size-body: 1.6rem;
+    --font-size-body-sm: 1.4rem;
+    --font-size-caption: 1.2rem;
+    --font-size-overline: 1rem;
+
+    /* Font Families */
+    --font-sans: 'Urbanist Variable', system-ui, sans-serif;
+    --font-serif: 'DM Serif Display', 'DM Serif Text', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Line Heights */
+    --leading-tight: 1.15;
+    --leading-snug: 1.3;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.7;
+
+    /* -----------------------------------------------------------------------
+     * SPACING — Consistent rhythm scale
+     * ----------------------------------------------------------------------- */
+
+    --spacing-xs: 0.4rem;
+    --spacing-sm: 0.8rem;
+    --spacing-md: 1.6rem;
+    --spacing-lg: 2.4rem;
+    --spacing-xl: 3.2rem;
+    --spacing-2xl: 4.8rem;
+    --spacing-3xl: 6.4rem;
+    --spacing-4xl: 9.6rem;
+
+    /* -----------------------------------------------------------------------
+     * BORDER RADIUS — Semantic scale
+     * ----------------------------------------------------------------------- */
+
+    --radius-xs: 0.4rem;
+    --radius-sm: 0.6rem;
+    --radius-md: 0.8rem;
+    --radius-lg: 1.2rem;
+    --radius-xl: 1.6rem;
+    --radius-2xl: 2.4rem;
+    --radius-pill: 9999px;
+
+    /* -----------------------------------------------------------------------
+     * SHADOWS — Layered elevation system
+     * -----------------------------------------------------------------------
+     * PATTERN: Elevation System
+     * Shadows communicate hierarchy. We define levels (sm → 2xl)
+     * to create consistent depth across the UI.
+     * ----------------------------------------------------------------------- */
+
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 8px 10px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+    --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
+
+    /* -----------------------------------------------------------------------
+     * TRANSITIONS — Consistent motion tokens
+     * -----------------------------------------------------------------------
+     * PATTERN: Motion Tokens
+     * Centralize all transition durations and easings so the UI
+     * feels cohesive. Use CSS variables in transition shorthand.
+     * ----------------------------------------------------------------------- */
+
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 400ms;
+    --duration-slower: 600ms;
+
+    --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* -----------------------------------------------------------------------
+     * Z-INDEX — Layering scale
+     * -----------------------------------------------------------------------
+     * PATTERN: Z-Index Scale
+     * Define all z-indices in one place to avoid z-index wars.
+     * ----------------------------------------------------------------------- */
+
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-overlay: 300;
+    --z-modal: 400;
+    --z-toast: 500;
+    --z-devtools: 9999;
+
+    /* -----------------------------------------------------------------------
+     * LAYOUT — Dashboard dimensions
+     * ----------------------------------------------------------------------- */
+
+    --sidebar-width: 26rem;
+    --sidebar-width-collapsed: 7.2rem;
+    --header-height: 6.4rem;
 }
 
+/* ============================================================================
+ * BASE LAYER — Global resets and element defaults
+ * ============================================================================ */
+
 @layer base {
+    /**
+     * PATTERN: Universal Box-Sizing Reset
+     * Ensures padding/border are included in element dimensions.
+     * The transition properties use GPU-accelerated props only.
+     */
     *,
     *::before,
     *::after {
-        padding: 0px;
-        margin: 0px;
+        padding: 0;
+        margin: 0;
         box-sizing: border-box;
-        transition:
-            color,
-            background-color 200ms ease;
     }
 
+    /**
+     * PATTERN: 62.5% Font Size Trick
+     * Setting html to 62.5% makes 1rem = 10px, which simplifies
+     * rem calculations: 1.6rem = 16px, 2.4rem = 24px, etc.
+     */
     html {
         font-size: 62.5%;
     }
 
     body {
-        font-family: 'Urbanist Variable', sans-serif;
-        font-size: 1.6rem;
+        font-family: var(--font-sans);
+        font-size: var(--font-size-body);
+        line-height: var(--leading-normal);
+        color: var(--color-primary);
+        background-color: var(--color-surface);
         overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
+
+    /**
+     * PATTERN: Accessible Motion Preferences
+     * Respects the user's OS-level "Reduce Motion" setting.
+     * All animations/transitions are disabled for users who prefer it.
+     */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Heading hierarchy — Fluid typography applied */
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-        font-weight: 600;
+        font-weight: var(--font-weight-semibold);
+        line-height: var(--leading-tight);
+    }
+
+    h1 {
+        font-size: var(--font-size-h1);
+        font-family: var(--font-serif);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2);
+    }
+
+    h3 {
+        font-size: var(--font-size-h3);
+    }
+
+    h4 {
+        font-size: var(--font-size-h4);
+    }
+
+    h5 {
+        font-size: var(--font-size-h5);
+    }
+
+    h6 {
+        font-size: var(--font-size-h6);
     }
 
     span {
         display: inline-block;
     }
 
-    h1 {
-        @apply text-[4.8rem];
-        font-family: 'DM Serif Display', serif;
+    /**
+     * PATTERN: Focus-Visible Only
+     * Shows focus ring only for keyboard navigation, not mouse clicks.
+     * Improves UX while maintaining full accessibility.
+     */
+    :focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 2px;
+    }
+
+    :focus:not(:focus-visible) {
+        outline: none;
     }
 }
+
+/* ============================================================================
+ * UTILITIES LAYER — Reusable utility classes
+ * ============================================================================ */
 
 @layer utilities {
     .flex-full-center {
@@ -53,15 +328,11 @@
     }
 
     .hero-bg {
-        background: linear-gradient(
-            180deg,
-            rgb(var(--background-start-rgb)) 0%,
-            rgb(var(--background-end-rgb)) 100%
-        );
+        background: linear-gradient(180deg, rgb(145, 194, 228) 0%, rgb(254, 255, 243) 100%);
     }
 
     .soft-shadow {
-        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.02);
+        box-shadow: var(--shadow-xs);
     }
 
     .bg-tweak {
@@ -72,6 +343,12 @@
         @apply absolute inset-0 bg-black/20;
     }
 
+    /**
+     * PATTERN: Animated Underline Link
+     * Uses transform-origin trick to animate a pseudo-element
+     * from right-to-left (disappear) and left-to-right (appear).
+     * Only animates `transform` for 60fps GPU-accelerated perf.
+     */
     .link {
         @apply relative transition-all w-max hover:font-bold;
 
@@ -80,36 +357,43 @@
             @apply absolute -bottom-2 left-0 w-full h-[.22rem] bg-black;
             transform-origin: 100% 0;
             transform: scaleX(0);
-            transition: transform 0.3s ease-in-out;
+            transition: transform var(--duration-slow) var(--ease-default);
         }
 
         &:hover::after {
-            /* @apply !text-primary-light; */
             transform-origin: 0;
             transform: scaleX(1);
         }
 
         &-active {
-            @apply ml-8  transition-all  font-semibold;
+            @apply ml-8 transition-all font-semibold;
 
             &::after {
                 content: '';
-                @apply absolute top-3 -translate-y-1/2  -left-14 w-[3rem] h-[.30rem] bg-black;
+                @apply absolute top-3 -translate-y-1/2 -left-14 w-[3rem] h-[.30rem] bg-black;
                 transform-origin: 100% 0;
                 transform: scaleX(1);
-                transition: transform 0.3s ease-in-out;
+                transition: transform var(--duration-slow) var(--ease-default);
             }
         }
     }
 
+    /**
+     * PATTERN: Ripple-Style Button Animation
+     * Uses a pseudo-element that scales from 0 to fill the button.
+     * The `[&>*]:relative [&>*]:z-10` ensures button content stays
+     * above the expanding circle (Tailwind arbitrary variants).
+     */
     .btn-animate {
-        @apply relative transition-colors duration-[400ms] ease-in overflow-hidden [&>*]:relative [&>*]:z-10;
+        @apply relative transition-colors overflow-hidden [&>*]:relative [&>*]:z-10;
+        transition-duration: var(--duration-slow);
+        transition-timing-function: var(--ease-in);
 
         &::after {
             content: '';
-            @apply absolute size-32 rounded-full  z-[1];
+            @apply absolute size-32 rounded-full z-[1];
             transform: scale(0);
-            transition: transform 550ms ease-in-out;
+            transition: transform 550ms var(--ease-default);
         }
 
         &:hover::after {
@@ -132,6 +416,40 @@
         }
         &:hover {
             @apply text-black;
+        }
+    }
+
+    /**
+     * PATTERN: Glassmorphism Utility
+     * Creates the frosted-glass effect popular in modern UIs.
+     * Combines backdrop-blur, semi-transparent background, and subtle border.
+     */
+    .glass {
+        background: var(--color-surface-glass);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /**
+     * PATTERN: Smooth Scrollbar Styling
+     * Consistent scrollbar appearance across the app.
+     */
+    .scrollbar-thin {
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-neutral-300) transparent;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--color-neutral-300);
+            border-radius: var(--radius-pill);
         }
     }
 }

@@ -1,3 +1,5 @@
+import type { User } from './auth';
+
 // Common types
 export type {
     ApiResponse,
